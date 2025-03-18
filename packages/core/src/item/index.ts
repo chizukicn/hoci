@@ -1,9 +1,9 @@
 import type { ActivateEvent, ElementLike } from "@hoci/shared";
-import { defineHookComponent, defineHookEmits, defineHookProps, valuePropType } from "@hoci/shared";
 import type { PropType } from "vue";
-import { computed, watch } from "vue";
+import { defineHookComponent, defineHookEmits, defineHookProps, valuePropType } from "@hoci/shared";
 import { tryOnScopeDispose } from "@vueuse/core";
 import { cls } from "tslx";
+import { computed, watch } from "vue";
 import { useSelectionContext } from "../selection";
 
 export const itemProps = defineHookProps({
@@ -114,5 +114,5 @@ export const useSelectionItem = defineHookComponent({
 
 export interface HiItemSlotsData {
   active: boolean;
-  activate(): void;
+  activate: () => void;
 }

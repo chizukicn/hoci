@@ -1,5 +1,5 @@
-import { defineComponent, h, renderSlot } from "vue";
 import { configProviderProps, provideSharedConfig } from "@hoci/core";
+import { defineComponent, h, renderSlot } from "vue";
 
 export const HiConfigProvider = defineComponent({
   props: {

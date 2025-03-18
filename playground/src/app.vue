@@ -1,6 +1,6 @@
 <script lang="tsx">
-import { defineComponent, reactive, ref } from "vue";
 import { HiAffix, HiConfigProvider, HiIcon, HiItem, HiSelection, HiSwitch, HiTabPane, HiTabs } from "hoci";
+import { defineComponent, reactive, ref } from "vue";
 import hociSvg from "./assets/hoci.svg";
 
 const Tab1 = defineComponent({
@@ -59,23 +59,23 @@ export default defineComponent(() => {
             class="mt-12"
           >
             {
-            {
-              default() {
-                return (
-                  <>
-                    <HiTabPane value={1} label="tab1">
-                      <Tab1 />
-                    </HiTabPane>
-                    <HiTabPane value={2} label="tab2">
-                      <div class="p-4">
-                        <HiSwitch as="span" class="cursor-pointer duration-200 select-none" activeClass="text-hex-f00">Tab 2</HiSwitch>
-                      </div>
-                    </HiTabPane>
-                  </>
-                );
+              {
+                default() {
+                  return (
+                    <>
+                      <HiTabPane value={1} label="tab1">
+                        <Tab1 />
+                      </HiTabPane>
+                      <HiTabPane value={2} label="tab2">
+                        <div class="p-4">
+                          <HiSwitch as="span" class="cursor-pointer duration-200 select-none" activeClass="text-hex-f00">Tab 2</HiSwitch>
+                        </div>
+                      </HiTabPane>
+                    </>
+                  );
+                }
               }
             }
-          }
           </HiTabs>
           <HiAffix class="my-1" as="div" offset={30}>
             <div class="inline-block  p-4 bg-blue-200">

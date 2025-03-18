@@ -1,9 +1,9 @@
-import "uno.css";
+import Theme from "vitepress/theme";
 
 // https://vitepress.dev/guide/custom-theme
 import { watch } from "vue";
-import Theme from "vitepress/theme";
 import DemoBlock from "../components/demo-block";
+import "uno.css";
 
 import "./style.css";
 

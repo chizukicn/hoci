@@ -1,12 +1,14 @@
-import { defineComponent, h } from "vue";
 import { capitalize } from "tslx";
+import { defineComponent, h } from "vue";
 import { itemEmits, itemProps, useSelectionItem } from "../item";
 
 export const HiTabPane = defineComponent({
+  name: "HiTabPane",
   props: {
     ...itemProps
   },
   emits: itemEmits,
+  inheritAttrs: true,
   setup(props, context) {
     const { className, activateEvent, activate, isDisabled, label } = useSelectionItem(props, context);
     return () => {

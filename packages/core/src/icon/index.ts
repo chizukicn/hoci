@@ -1,7 +1,7 @@
-import { computed } from "vue";
 import type { CSSProperties, PropType } from "vue";
 import { defineHookComponent, defineHookProps, useSharedConfig } from "@hoci/shared";
 import { createUnitFormat } from "tslx";
+import { computed } from "vue";
 
 export const iconProps = defineHookProps({
   src: {

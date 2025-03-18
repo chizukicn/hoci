@@ -1,6 +1,6 @@
-import { defineComponent, h } from "vue";
 import { itemEmits, itemProps, useSelectionItem } from "@hoci/core";
 import { capitalize } from "tslx";
+import { defineComponent, h } from "vue";
 
 export const HiItem = defineComponent({
   name: "HiItem",

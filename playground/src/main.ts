@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import "uno.css";
 import App from "./app.vue";
+import "uno.css";
 
 createApp(App)
   .mount("#app");

@@ -17,8 +17,8 @@ pnpm add hoci
 ## 完整引入
 
 ```ts
-import { createApp } from "vue";
 import hoci from "hoci";
+import { createApp } from "vue";
 
 const app = createApp();
 app.use(hoci);
@@ -35,10 +35,10 @@ npm install -D unplugin-vue-components
 
 在vite.config中配置
 ```ts
-import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import components from "unplugin-vue-components/vite";
 import { HociResolver } from "hoci/resolver";
+import components from "unplugin-vue-components/vite";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [

@@ -1,6 +1,6 @@
 import type { SharedConfig } from "@hoci/shared";
-import { defineHookProps } from "@hoci/shared";
 import type { PropType } from "vue";
+import { defineHookProps } from "@hoci/shared";
 
 export const configProviderProps = defineHookProps({
   icon: {

@@ -1,5 +1,5 @@
-import { Teleport, defineComponent, h, renderSlot } from "vue";
 import { popoverEmits, popoverProps, usePopover } from "@hoci/core";
+import { defineComponent, h, renderSlot, Teleport } from "vue";
 
 export const HiPopover = defineComponent({
   name: "HiPopover",

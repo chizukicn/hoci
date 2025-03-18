@@ -1,17 +1,16 @@
-import { dirname, join, sep } from "node:path";
-import fsExtra from "fs-extra";
-import type { MarkdownRenderer } from "vitepress";
-import { DemoTag } from "./constants";
 import type { DemoInfos } from "./types";
+import { dirname, join, sep } from "node:path";
+import * as fsExtra from "fs-extra";
+import { DemoTag } from "./constants";
 
 const scriptRE = /<\/script>/;
-const scriptLangTsRE = /<\s*script[^>]*\blang=["']ts["'][^>]*/;
-const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/;
-const scriptClientRE = /<\s*script[^>]*\bclient\b[^>]*/;
+const scriptLangTsRE = /<\s*script[^>]+\blang=["']ts["'][^>]*/;
+const scriptSetupRE = /<\s*script[^>]+\bsetup\b[^>]*/;
+const scriptClientRE = /<\s*script[^>]+\bclient\b[^>]*/;
 
 let index = 1;
 export function getDemoComponent(
-  md: MarkdownRenderer,
+  md: markdownit,
   env: any,
   { title, desc, path, code, ...props }: DemoInfos
 ) {
@@ -38,7 +37,7 @@ export function getDemoComponent(
 
 let fenceIndex = 1;
 export function genDemoByCode(
-  md: MarkdownRenderer,
+  md: markdownit,
   env: any,
   path: string,
   code: string

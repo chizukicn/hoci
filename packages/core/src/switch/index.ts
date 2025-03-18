@@ -1,7 +1,5 @@
+import type { ActivateEvent } from "@hoci/shared";
 import type { PropType } from "vue";
-import { computed } from "vue";
-import { useVModel } from "@vueuse/core";
-import { cls } from "tslx";
 import {
   classPropType,
   defineHookComponent,
@@ -9,7 +7,9 @@ import {
   defineHookProps,
   useSharedConfig
 } from "@hoci/shared";
-import type { ActivateEvent } from "@hoci/shared";
+import { useVModel } from "@vueuse/core";
+import { cls } from "tslx";
+import { computed } from "vue";
 
 export const switchProps = defineHookProps({
   modelValue: {

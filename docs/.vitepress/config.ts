@@ -1,5 +1,5 @@
-import { defineConfig } from "vitepress";
 import type { DefaultTheme } from "vitepress/types/default-theme";
+import { defineConfig } from "vitepress";
 import { applyPlugins } from "./plugins/code";
 
 function guideSidebar(): DefaultTheme.SidebarItem[] {

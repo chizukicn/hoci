@@ -8,9 +8,9 @@ import type {
   PropType,
   SetupContext
 } from "vue";
+import type { HookComponent, HookComponentOptions } from "./types";
 import { reactiveComputed } from "@vueuse/core";
 import { isConstructor, isFunction } from "./utils";
-import type { HookComponent, HookComponentOptions } from "./types";
 
 export function defineHookProps<
   P extends ComponentObjectPropsOptions = ComponentObjectPropsOptions

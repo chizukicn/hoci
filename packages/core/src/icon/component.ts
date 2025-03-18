@@ -1,5 +1,5 @@
-import { defineComponent, h } from "vue";
 import { iconProps, useIcon } from "@hoci/core";
+import { defineComponent, h } from "vue";
 
 export const HiIcon = defineComponent({
   props: {

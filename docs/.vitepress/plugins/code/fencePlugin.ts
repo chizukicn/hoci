@@ -1,4 +1,3 @@
-import type { MarkdownRenderer } from "vitepress";
 import { FenceDemoTag } from "./constants";
 import { genDemoByCode } from "./utils";
 

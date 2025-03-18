@@ -46,7 +46,7 @@
     "lint-staged": "^15.5.0",
     "nolyfill": "^1.0.44",
     "prettier": "^3.5.3",
-    "rimraf": "^5.0.10",
+    "rimraf": "^6.0.0",
     "simple-git-hooks": "^2.11.1",
     "taze": "^19.0.2",
     "typescript": "^5.8.2",

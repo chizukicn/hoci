@@ -1,6 +1,6 @@
+import type { ComputedRef, MaybeRefOrGetter, Ref, ToRef, UnwrapNestedRefs } from "vue";
 import { toReactive as _toReactive, noop } from "@vueuse/core";
 import { toRef as _toRef, customRef, readonly, ref } from "vue";
-import type { ComputedRef, MaybeRefOrGetter, Ref, ToRef, UnwrapNestedRefs } from "vue";
 
 export const toReactive = _toReactive as <T>(value: T) => UnwrapNestedRefs<T>;
 

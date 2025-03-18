@@ -1,8 +1,8 @@
-import type { InjectionKey } from "vue";
-import { inject, provide } from "vue";
-import defu from "defu";
 import type { PartialDeep } from "type-fest";
+import type { InjectionKey } from "vue";
 import type { ActivateEvent } from "../types";
+import defu from "defu";
+import { inject, provide } from "vue";
 
 const SHARED_CONFIG_KEY: InjectionKey<PartialDeep<SharedConfig>> = Symbol("SharedConfig");
 

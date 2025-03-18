@@ -1,8 +1,7 @@
-import { dirname, resolve } from "node:path";
-import fsExtra from "fs-extra";
-import { baseParse } from "@vue/compiler-core";
 import type { AttributeNode, ElementNode } from "@vue/compiler-core";
-import type { MarkdownRenderer } from "vitepress";
+import { dirname, resolve } from "node:path";
+import { baseParse } from "@vue/compiler-core";
+import fsExtra from "fs-extra";
 import { DemoTag } from "./constants";
 import { getDemoComponent } from "./utils";
 
@@ -24,7 +23,7 @@ export function parseProps(content: string) {
   return props;
 }
 
-export function demoBlockPlugin(md: MarkdownRenderer) {
+export function demoBlockPlugin(md: markdownit) {
   const addRenderRule = (type: string) => {
     const defaultRender = md.renderer.rules[type];
 

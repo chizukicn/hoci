@@ -1,5 +1,5 @@
-import { defineComponent, h } from "vue";
 import { selectionEmits, selectionProps, useSelectionList } from "@hoci/core";
+import { defineComponent, h } from "vue";
 
 export const HiSelection = defineComponent({
   name: "HiSelection",

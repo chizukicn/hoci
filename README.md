@@ -27,8 +27,8 @@ pnpm install hoci
 Import:
 
 ```tsx
-import { defineComponent, ref } from "vue";
 import { HiItem, HiSelection } from "hoci";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent(() => {
   const modelValue = ref("abc");

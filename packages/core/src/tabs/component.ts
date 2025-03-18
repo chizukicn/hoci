@@ -1,9 +1,10 @@
 import type { KeepAliveProps, PropType } from "vue";
-import { KeepAlive, defineComponent, h, renderSlot } from "vue";
 import { classPropType } from "@hoci/shared";
+import { defineComponent, h, KeepAlive, renderSlot } from "vue";
 import { selectionProps, useSelectionList } from "../selection";
 
 export const HiTabs = defineComponent({
+  name: "HiTabs",
   props: {
     ...selectionProps,
     headerClass: {
@@ -29,6 +30,7 @@ export const HiTabs = defineComponent({
       default: false
     }
   },
+  inheritAttrs: true,
   setup(props, context) {
     const selection = useSelectionList(props, context);
 

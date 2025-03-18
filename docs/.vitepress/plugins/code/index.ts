@@ -1,5 +1,5 @@
-import { demoBlockPlugin } from "./plugin-demo-block";
 import { fencePlugin } from "./fencePlugin";
+import { demoBlockPlugin } from "./plugin-demo-block";
 
 export function applyPlugins(md: markdownit) {
   md.use(fencePlugin);

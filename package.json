@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.6.0",
   "private": true,
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@10.6.4",
   "description": "hook ui .",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
@@ -39,20 +39,20 @@
     "deploy": "pnpm build && pnpm build:docs"
   },
   "devDependencies": {
-    "@curev/eslint-config": "^0.3.7",
-    "@types/node": "^20.14.9",
-    "bumpp": "^9.4.1",
-    "eslint": "^8.57.0",
-    "lint-staged": "^15.2.7",
-    "nolyfill": "^1.0.31",
-    "prettier": "^3.3.2",
-    "rimraf": "^5.0.7",
+    "@curev/eslint-config": "^0.5.0",
+    "@types/node": "^20.17.24",
+    "bumpp": "^10.1.0",
+    "eslint": "^9.22.0",
+    "lint-staged": "^15.5.0",
+    "nolyfill": "^1.0.44",
+    "prettier": "^3.5.3",
+    "rimraf": "^5.0.10",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.13.8",
-    "typescript": "^5.5.2",
-    "unbuild": "^2.0.0",
+    "taze": "^19.0.2",
+    "typescript": "^5.8.2",
+    "unbuild": "^3.5.0",
     "vitepress": "1.0.0-rc.44",
-    "vitest": "^1.6.0"
+    "vitest": "^3.0.9"
   },
   "pnpm": {
     "overrides": {

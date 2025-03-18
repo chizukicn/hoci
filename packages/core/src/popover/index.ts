@@ -1,7 +1,8 @@
+import type { PropType } from "vue";
 import { defineHookComponent, defineHookEmits, defineHookProps } from "@hoci/shared";
 import { onClickOutside, useVModel } from "@vueuse/core";
 import { px } from "tslx";
-import { type PropType, computed, nextTick, reactive, ref, watch } from "vue";
+import { computed, nextTick, reactive, ref, watch } from "vue";
 
 export type Placement =
   "bottom" | "top" | "left" | "right" | "auto" |

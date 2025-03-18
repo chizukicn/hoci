@@ -1,6 +1,6 @@
 <script lang='ts' setup name="demo-block">
-import { computed } from "vue";
 import { useClipboard, useToggle } from "@vueuse/core";
+import { computed } from "vue";
 import { demoProps } from "./index";
 
 const props = defineProps(demoProps);

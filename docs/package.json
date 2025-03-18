@@ -5,16 +5,19 @@
   "private": true,
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build"
+    "build": "vitepress build",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "hoci": "workspace:*"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.36",
+    "@iconify-json/carbon": "^1.2.8",
+    "@types/fs-extra": "^11.0.4",
+    "fs-extra": "^11.3.0",
     "scss": "^0.2.4",
-    "unocss": "^0.61.0",
-    "unplugin-vue-components": "^0.27.1",
-    "vitepress": "^1.2.3"
+    "unocss": "^66.0.0",
+    "unplugin-vue-components": "^28.4.1",
+    "vitepress": "^1.6.3"
   }
 }

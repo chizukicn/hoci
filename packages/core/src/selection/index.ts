@@ -1,12 +1,5 @@
-import { isDefined, syncRef } from "@vueuse/core";
+import type { ActivateEvent, ElementLike } from "@hoci/shared";
 import type { InjectionKey, PropType } from "vue";
-import {
-  computed,
-  inject,
-  provide,
-  reactive,
-  renderSlot
-} from "vue";
 import {
   classPropType,
   defineHookComponent,
@@ -18,8 +11,15 @@ import {
   useSharedConfig,
   valuePropType
 } from "@hoci/shared";
-import type { ActivateEvent, ElementLike } from "@hoci/shared";
+import { isDefined, syncRef } from "@vueuse/core";
 import { cls } from "tslx";
+import {
+  computed,
+  inject,
+  provide,
+  reactive,
+  renderSlot
+} from "vue";
 
 export type InitFunction = (option: Option) => () => void;
 
@@ -27,7 +27,7 @@ export interface Option {
   id?: string;
   label?: string;
   value: any | null;
-  render(): ElementLike;
+  render: () => ElementLike;
 }
 
 export interface HiSelectionContext {

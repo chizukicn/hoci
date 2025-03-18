@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
-import UnoCSS from "unocss/vite";
-import { presetIcons, presetUno } from "unocss";
-import Components from "unplugin-vue-components/vite";
 import { HociResolver } from "hoci/resolver";
+import { presetIcons, presetUno } from "unocss";
+import UnoCSS from "unocss/vite";
+import Components from "unplugin-vue-components/vite";
+import { defineConfig } from "vite";
 import { alias } from "../alias";
 
 export default defineConfig({

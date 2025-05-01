@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 
+// @ts-nocheck
 const imageFile = ref<File>();
 const imagePreview = ref<string>("");
 

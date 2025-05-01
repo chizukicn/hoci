@@ -42,6 +42,10 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
     {
       text: "File Upload (文件上传)",
       link: "file-upload"
+    },
+    {
+      text: "Tabs (标签页)",
+      link: "tabs"
     }
   ];
 }

@@ -15,5 +15,7 @@ declare module 'vue' {
     HiPopover: typeof import('hoci')['HiPopover']
     HiSelection: typeof import('hoci')['HiSelection']
     HiSwitch: typeof import('hoci')['HiSwitch']
+    HiTabPane: typeof import('hoci')['HiTabPane']
+    HiTabs: typeof import('hoci')['HiTabs']
   }
 }

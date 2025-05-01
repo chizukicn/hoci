@@ -14,6 +14,10 @@ function guideSidebar(): DefaultTheme.SidebarItem[] {
 function componentSidebar(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: "Icon (图标)",
+      link: "icon"
+    },
+    {
       text: "Affix (固钉)",
       link: "affix"
     },

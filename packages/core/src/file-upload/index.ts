@@ -1,5 +1,5 @@
 import type { PropType } from "vue";
-import { defineHookComponent, defineHookEmits, defineHookProps, elementRef } from "@hoci/shared";
+import { defineHookComponent, defineHookEmits, defineHookProps, elementRef, toArray } from "@hoci/shared";
 import { useEventListener } from "@vueuse/core";
 import { ref, watch } from "vue";
 
@@ -32,15 +32,8 @@ export const useFileUpload = defineHookComponent({
     const fileInputRef = elementRef<HTMLInputElement>();
     const files = ref<File[]>([]);
 
-    watch(props.modelValue, (value) => {
-      if (value instanceof File) {
-        files.value.push(value);
-      } else if (Array.isArray(value)) {
-        files.value.push(...value);
-      }
-      if (props.multiple) {
-        files.value.splice(1, files.value.length - 1);
-      }
+    watch(() => toArray(props.modelValue), (value) => {
+      files.value = value;
     }, {
       immediate: true,
       deep: true
@@ -50,18 +43,26 @@ export const useFileUpload = defineHookComponent({
       fileInputRef.value?.click();
     };
 
+    const toModelValue = (files: File[]): File | File[] | null => {
+      if (props.multiple) {
+        return files;
+      }
+      if (files.length) {
+        return files[files.length - 1];
+      }
+      return null;
+    };
+
     useEventListener(fileInputRef, "change", (event: Event) => {
-      const newFiles = (event.target as HTMLInputElement).files;
-      let value: File | File[] = [];
-      if (newFiles) {
+      const newFiles: File[] = Array.from((event.target as HTMLInputElement).files ?? []);
+      if (newFiles?.length) {
         if (props.multiple) {
-          value = Array.from(newFiles);
-          files.value.push(...value);
+          files.value.push(...newFiles);
         } else {
-          value = Array.from(newFiles)[0];
-          files.value = value ? [value] : [];
+          files.value = newFiles.slice(newFiles.length - 1);
         }
       }
+      const value = toModelValue(files.value);
       emit("update:modelValue", value);
       emit("change", value);
     });

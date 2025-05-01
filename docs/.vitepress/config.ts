@@ -26,6 +26,10 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
       link: "selection"
     },
     {
+      text: "Switch (开关)",
+      link: "switch"
+    },
+    {
       text: "Popover (浮动)",
       link: "popover"
     },

@@ -14,5 +14,6 @@ declare module 'vue' {
     HiItem: typeof import('hoci')['HiItem']
     HiPopover: typeof import('hoci')['HiPopover']
     HiSelection: typeof import('hoci')['HiSelection']
+    HiSwitch: typeof import('hoci')['HiSwitch']
   }
 }

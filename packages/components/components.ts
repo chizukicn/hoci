@@ -1,6 +1,7 @@
 export * from "../core/src/affix-target/component";
 export * from "../core/src/affix/component";
 export * from "../core/src/config-provider/component";
+export * from "../core/src/file-upload/component";
 export * from "../core/src/icon/component";
 export * from "../core/src/item/component";
 export * from "../core/src/popover/component";

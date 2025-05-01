@@ -24,6 +24,10 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
     {
       text: "Popover (浮动)",
       link: "popover"
+    },
+    {
+      text: "File Upload (文件上传)",
+      link: "file-upload"
     }
   ];
 }

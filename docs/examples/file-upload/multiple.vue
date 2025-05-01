@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-// @ts-nocheck
 const files = ref<File[]>([]);
 
 function formatFileSize(bytes: number) {

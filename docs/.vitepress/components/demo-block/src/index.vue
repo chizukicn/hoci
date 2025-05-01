@@ -30,9 +30,7 @@ const [value, toggle] = useToggle();
             <div title="Show Code" class="o-demo_action_icon i-carbon:fit-to-width" />
           </a>
         </div>
-        <ClientOnly>
-          <div v-show="value" :class="`language-${lang} extra-class`" v-html="decodedHighlightedCode" />
-        </ClientOnly>
+        <div v-show="value" :class="`language-${lang} extra-class`" v-html="decodedHighlightedCode" />
       </div>
     </div>
   </ClientOnly>

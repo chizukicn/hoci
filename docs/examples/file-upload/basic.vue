@@ -1,76 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const file = ref<File>()
+const file = ref<File>();
 
-const formatFileSize = (bytes: number) => {
-  if (bytes === 0) return '0 B'
-  const k = 1024
-  const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return (bytes / Math.pow(k, i)).toFixed(2) + ' ' + sizes[i]
+function formatFileSize(bytes: number) {
+  if (bytes === 0) {
+    return "0 B";
+  }
+  const k = 1024;
+  const sizes = ["B", "KB", "MB", "GB", "TB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return `${(bytes / k ** i).toFixed(2)} ${sizes[i]}`;
 }
 </script>
 
 <template>
-  <hi-file-upload v-model="file" class="upload-demo">
-    <div class="upload-trigger">
+  <hi-file-upload v-model="file" class="w-full max-w-360px">
+    <div class="flex flex-col items-center justify-center h-180px border-2 border-dashed border-gray-200 rounded-lg cursor-pointer transition-colors duration-300 hover:border-indigo-500">
       <div v-if="!file">
-        <i class="hi-icon-upload" />
-        <div class="upload-text">点击上传文件</div>
+        <i class="hi-icon-upload text-32px text-gray-500" />
+        <div class="mt-3 text-gray-500">
+          点击上传文件
+        </div>
       </div>
-      <div v-else class="file-info">
-        <div class="file-name">{{ file.name }}</div>
-        <div class="file-size">{{ formatFileSize(file.size) }}</div>
+      <div v-else class="text-center">
+        <div class="text-gray-900 font-medium mb-1">
+          {{ file.name }}
+        </div>
+        <div class="text-gray-500 text-14px">
+          {{ formatFileSize(file.size) }}
+        </div>
       </div>
     </div>
   </hi-file-upload>
 </template>
-
-<style scoped>
-.upload-demo {
-  width: 100%;
-  max-width: 360px;
-}
-
-.upload-trigger {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 180px;
-  border: 2px dashed #e5e7eb;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: border-color 0.3s;
-}
-
-.upload-trigger:hover {
-  border-color: #6366f1;
-}
-
-.hi-icon-upload {
-  font-size: 32px;
-  color: #6b7280;
-}
-
-.upload-text {
-  margin-top: 12px;
-  color: #6b7280;
-}
-
-.file-info {
-  text-align: center;
-}
-
-.file-name {
-  color: #111827;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.file-size {
-  color: #6b7280;
-  font-size: 14px;
-}
-</style>

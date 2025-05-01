@@ -18,7 +18,7 @@ watch(imageFile, (file) => {
 
 function formatFileSize(bytes: number) {
   if (bytes === 0) {
-    return "0  B  ";
+    return "0 B";
   }
   const k = 1024;
   const sizes = ["B", "KB", "MB", "GB", "TB"];
@@ -28,33 +28,33 @@ function formatFileSize(bytes: number) {
 </script>
 
 <template>
-  <div class="demo-container">
+  <div class="w-full max-w-360px">
     <hi-file-upload
       v-model="imageFile"
       accept=".jpg,.jpeg,.png"
-      class="upload-demo"
+      class="w-full"
     >
-      <div class="upload-trigger">
+      <div class="flex flex-col items-center justify-center h-200px border-2 border-dashed border-gray-200 rounded-lg cursor-pointer transition-colors duration-300 hover:border-indigo-500">
         <div v-if="!imageFile">
-          <i class="hi-icon-image" />
-          <div class="upload-text">
+          <i class="hi-icon-image text-32px text-gray-500" />
+          <div class="mt-3 text-gray-500">
             点击上传图片
           </div>
-          <div class="upload-hint">
+          <div class="mt-1 text-gray-400 text-14px">
             支持 jpg、png 格式
           </div>
         </div>
-        <div v-else class="preview-container">
+        <div v-else class="w-full h-full flex flex-col items-center justify-center p-4">
           <img
             :src="imagePreview"
-            class="image-preview"
+            class="max-w-full max-h-120px object-contain rounded"
             alt="预览图"
           >
-          <div class="file-info">
-            <div class="file-name">
+          <div class="mt-3 text-center">
+            <div class="text-gray-900 font-medium mb-1">
               {{ imageFile.name }}
             </div>
-            <div class="file-size">
+            <div class="text-gray-500 text-14px">
               {{ formatFileSize(imageFile.size) }}
             </div>
           </div>
@@ -63,75 +63,3 @@ function formatFileSize(bytes: number) {
     </hi-file-upload>
   </div>
 </template>
-
-<style scoped>
-.demo-container {
-  width: 100%;
-  max-width: 360px;
-}
-
-.upload-trigger {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  border: 2px dashed #e5e7eb;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: border-color 0.3s;
-}
-
-.upload-trigger:hover {
-  border-color: #6366f1;
-}
-
-.hi-icon-image {
-  font-size: 32px;
-  color: #6b7280;
-}
-
-.upload-text {
-  margin-top: 12px;
-  color: #6b7280;
-}
-
-.upload-hint {
-  margin-top: 4px;
-  color: #9ca3af;
-  font-size: 14px;
-}
-
-.preview-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.image-preview {
-  max-width: 100%;
-  max-height: 120px;
-  object-fit: contain;
-  border-radius: 4px;
-}
-
-.file-info {
-  margin-top: 12px;
-  text-align: center;
-}
-
-.file-name {
-  color: #111827;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.file-size {
-  color: #6b7280;
-  font-size: 14px;
-}
-</style>

@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.6.0",
   "private": true,
-  "packageManager": "pnpm@10.6.4",
+  "packageManager": "pnpm@10.10.0",
   "description": "hook ui .",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
@@ -40,28 +40,27 @@
   },
   "devDependencies": {
     "@curev/eslint-config": "^0.5.0",
-    "@types/node": "^20.17.24",
+    "@types/node": "^22.15.3",
     "bumpp": "^10.1.0",
-    "eslint": "^9.22.0",
-    "lint-staged": "^15.5.0",
+    "eslint": "^9.25.1",
+    "lint-staged": "^15.5.1",
     "nolyfill": "^1.0.44",
-    "prettier": "^3.5.3",
-    "rimraf": "^5.0.10",
-    "simple-git-hooks": "^2.11.1",
-    "taze": "^19.0.2",
-    "typescript": "^5.8.2",
+    "simple-git-hooks": "^2.13.0",
+    "taze": "^19.0.4",
+    "typescript": "^5.8.3",
     "unbuild": "^3.5.0",
-    "vitepress": "1.0.0-rc.44",
-    "vitest": "^3.0.9"
+    "vitepress": "1.6.3",
+    "vitest": "^3.1.2"
   },
   "pnpm": {
     "overrides": {
-      "array-includes": "npm:@nolyfill/array-includes@latest",
-      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
-      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@latest",
-      "has": "npm:@nolyfill/has@latest",
-      "hasown": "npm:@nolyfill/hasown@latest",
-      "object.values": "npm:@nolyfill/object.values@latest"
+      "array-includes": "npm:@nolyfill/array-includes@^1.0.44",
+      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@^1.0.44",
+      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@^1.0.44",
+      "has": "npm:@nolyfill/has@^1.0.44",
+      "hasown": "npm:@nolyfill/hasown@^1.0.44",
+      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
+      "object.values": "npm:@nolyfill/object.values@^1.0.44"
     }
   },
   "simple-git-hooks": {
@@ -69,7 +68,6 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "prettier --write",
       "eslint --fix"
     ]
   }

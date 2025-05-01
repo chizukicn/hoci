@@ -21,9 +21,6 @@
     "skipDefaultLibCheck": true
   },
   "include": [
-    "playgrounds/**/*.ts",
-    "playgrounds/**/*.tsx",
-    "playgrounds/**/*.vue",
     "packages/**/**.ts",
     "packages/**/**.tsx",
     "test/**/**.ts"

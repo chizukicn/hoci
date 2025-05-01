@@ -1,4 +1,4 @@
-import { elementRef } from "hoci";
+import { elementRef } from "@hoci/shared";
 import { defineComponent, h, renderSlot } from "vue";
 import { provideAffixTarget } from "../affix";
 

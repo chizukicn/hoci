@@ -1,5 +1,6 @@
 export * from "./affix";
 export * from "./config-provider";
+export * from "./file-upload";
 export * from "./icon";
 export * from "./item";
 export * from "./popover";

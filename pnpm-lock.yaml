@@ -90,9 +90,6 @@ importers:
       '@hoci/shared':
         specifier: workspace:*
         version: link:../shared
-      '@vueuse/core':
-        specifier: '>=9.12.0'
-        version: 9.12.0(vue@3.4.38(typescript@5.8.3))
       maybe-types:
         specifier: ^0.2.0
         version: 0.2.0
@@ -108,9 +105,6 @@ importers:
       '@hoci/shared':
         specifier: workspace:*
         version: link:../shared
-      '@vueuse/core':
-        specifier: 9.12.0
-        version: 9.12.0(vue@3.4.38(typescript@5.8.3))
       maybe-types:
         specifier: ^0.2.0
         version: 0.2.0

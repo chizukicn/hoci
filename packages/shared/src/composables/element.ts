@@ -1,6 +1,6 @@
 import type { MaybeRefOrGetter, Ref } from "vue";
 import { useMounted } from "@vueuse/core";
-import { computed } from "vue";
+import { computed, shallowRef } from "vue";
 import { toRef } from "./vueuse";
 
 export function useElement<E extends Element = HTMLElement>(elementSelector: MaybeRefOrGetter<string | Element | undefined | null>, defaultValue?: Ref<E | null | undefined> | MaybeRefOrGetter<E | null | undefined>): Ref<E | null | undefined> {
@@ -20,4 +20,10 @@ export function useElement<E extends Element = HTMLElement>(elementSelector: May
   });
 
   return computed(() => el.value ?? defaultRef.value);
+}
+
+export type ElementRef<T extends HTMLElement = HTMLElement> = Ref<T | null>;
+
+export function elementRef<T extends HTMLElement = HTMLElement>(): ElementRef<T> {
+  return shallowRef<T | null>(null);
 }

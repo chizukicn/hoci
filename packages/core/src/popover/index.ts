@@ -1,8 +1,8 @@
 import type { PropType } from "vue";
-import { defineHookComponent, defineHookEmits, defineHookProps } from "@hoci/shared";
+import { defineHookComponent, defineHookEmits, defineHookProps, elementRef } from "@hoci/shared";
 import { onClickOutside, useVModel } from "@vueuse/core";
 import { px } from "tslx";
-import { computed, nextTick, reactive, ref, watch } from "vue";
+import { computed, nextTick, reactive, watch } from "vue";
 
 export type Placement =
   "bottom" | "top" | "left" | "right" | "auto" |
@@ -56,8 +56,8 @@ export const usePopover = defineHookComponent({
       passive: true
     });
 
-    const triggerRef = ref<HTMLElement>();
-    const popupRef = ref<HTMLElement>();
+    const triggerRef = elementRef();
+    const popupRef = elementRef();
 
     const validate = (event: TriggerEvent | TriggerEvent[]) => {
       const events = Array.isArray(event) ? event : [event];

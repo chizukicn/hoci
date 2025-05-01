@@ -1,6 +1,6 @@
 import type { CSSProperties } from "tslx";
 import type { InjectionKey, MaybeRefOrGetter, PropType, Ref } from "vue";
-import { defineHookComponent, defineHookEmits, defineHookProps, isWindow, throttleByRaf, toReactive, useElement } from "@hoci/shared";
+import { defineHookComponent, defineHookEmits, defineHookProps, elementRef, isWindow, throttleByRaf, toReactive, useElement } from "@hoci/shared";
 import { useElementBounding, useElementVisibility, useEventListener } from "@vueuse/core";
 import { px } from "tslx";
 import { computed, inject, provide, ref, watchPostEffect } from "vue";
@@ -64,7 +64,7 @@ function getTargetRect(target: Element | Window) {
 export const useAffix = defineHookComponent({
   props: affixProps,
   setup(props, { emit }) {
-    const wrapperRef = ref<HTMLElement>();
+    const wrapperRef = elementRef();
 
     const wrapperRect = toReactive(useElementBounding(wrapperRef));
 

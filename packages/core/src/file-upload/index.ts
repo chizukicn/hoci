@@ -1,5 +1,5 @@
 import type { PropType } from "vue";
-import { defineHookComponent, defineHookEmits, defineHookProps } from "@hoci/shared";
+import { defineHookComponent, defineHookEmits, defineHookProps, elementRef } from "@hoci/shared";
 import { useEventListener } from "@vueuse/core";
 import { ref, watch } from "vue";
 
@@ -29,7 +29,7 @@ export const useFileUpload = defineHookComponent({
   props: fileUploadProps,
   emits: fileUploadEmits,
   setup(props, { emit }) {
-    const fileInputRef = ref<HTMLInputElement>();
+    const fileInputRef = elementRef<HTMLInputElement>();
     const files = ref<File[]>([]);
 
     watch(props.modelValue, (value) => {

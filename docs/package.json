@@ -17,7 +17,7 @@
     "fs-extra": "^11.3.0",
     "scss": "^0.2.4",
     "unocss": "^66.0.0",
-    "unplugin-vue-components": "^28.4.1",
+    "unplugin-vue-components": "^28.5.0",
     "vitepress": "^1.6.3"
   }
 }

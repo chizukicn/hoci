@@ -1,12 +1,18 @@
-import type { DefaultTheme } from "vitepress/types/default-theme";
+import type { DefaultTheme } from "vitepress";
 import { defineConfig } from "vitepress";
 import { applyPlugins } from "./plugins/code";
 
-function guideSidebar(): DefaultTheme.SidebarItem[] {
+function sidebars(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "快速开始",
+      base: "/guide/",
       link: "quickstart"
+    },
+    {
+      text: "组件",
+      base: "/component/",
+      items: componentSidebar()
     }
   ];
 }
@@ -52,18 +58,29 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "指南", link: "/guide/quickstart" },
-      { text: "组件", link: "/component/selection" }
+      {
+        text: "指南",
+        items: [
+          {
+            text: "快速开始",
+            link: "/guide/quickstart"
+          },
+          {
+            text: "组件",
+            link: "/component/icon"
+          }
+        ]
+      },
     ],
 
     sidebar: {
       "/guide/": {
         base: "/guide/",
-        items: guideSidebar()
+        items: sidebars()
       },
       "/component/": {
         base: "/component/",
-        items: componentSidebar()
+        items: sidebars()
       }
     },
 

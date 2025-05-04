@@ -39,7 +39,7 @@ jobs:
         run: nr typecheck
 
       - name: Test
-        run: nr test
+        run: nr coverage
 
       - name: Build
         run: nr build

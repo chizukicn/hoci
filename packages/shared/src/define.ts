@@ -20,8 +20,10 @@ export function defineHookProps<
 
 export function defineHookEmits<
   E extends EmitsOptions = EmitsOptions,
-  EE extends string = string
->(emits: E | EE[]) {
+  EE extends string = string,
+  ETuples extends EE[] = EE[],
+  T extends E | ETuples = E | ETuples,
+>(emits: T): T {
   return emits;
 }
 

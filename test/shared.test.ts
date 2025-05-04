@@ -117,8 +117,8 @@ describe("hook utils", () => {
       const emits = defineHookEmits(["change", "update"]);
       expect(emits).toEqual(["change", "update"]);
       const emitsObj = defineHookEmits({
-        change: (_: any) => true,
-        update: (_: any) => true
+        change: () => true,
+        update: () => true
       });
       // Check if emitsObj is an object type
       if (!Array.isArray(emitsObj)) {

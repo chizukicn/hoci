@@ -88,7 +88,10 @@ function withDefaults<
   return newProps as D;
 }
 
-export function isExtends(types: PropType<any>, value: PropType<any>): boolean {
+export function isExtends(types: PropType<any> | null, value: PropType<any>): boolean {
+  if (types === null) {
+    return false;
+  }
   if (Array.isArray(types)) {
     return types.some((e) => isExtends(e, value));
   }

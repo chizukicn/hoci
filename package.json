@@ -39,7 +39,6 @@
   "devDependencies": {
     "@curev/eslint-config": "^0.5.0",
     "@types/node": "^22.15.3",
-    "@vitest/browser": "^3.1.2",
     "@vue/test-utils": "^2.4.6",
     "bumpp": "^10.1.0",
     "eslint": "^9.25.1",

@@ -20,8 +20,10 @@ export function defineHookProps<
 
 export function defineHookEmits<
   E extends EmitsOptions = EmitsOptions,
-  EE extends string = string
->(emits: E | EE[]) {
+  EE extends string = string,
+  ETuples extends EE[] = EE[],
+  T extends E | ETuples = E | ETuples,
+>(emits: T): T {
   return emits;
 }
 
@@ -88,7 +90,10 @@ function withDefaults<
   return newProps as D;
 }
 
-export function isExtends(types: PropType<any>, value: PropType<any>): boolean {
+export function isExtends(types: PropType<any> | null, value: PropType<any>): boolean {
+  if (types === null) {
+    return false;
+  }
   if (Array.isArray(types)) {
     return types.some((e) => isExtends(e, value));
   }

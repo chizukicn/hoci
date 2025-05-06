@@ -38,21 +38,21 @@
     "deploy": "pnpm build && pnpm build:docs"
   },
   "devDependencies": {
-    "@curev/eslint-config": "^0.5.0",
-    "@types/node": "^22.15.3",
-    "@vitest/coverage-v8": "^3.1.2",
-    "@vue/test-utils": "^2.4.6",
-    "bumpp": "^10.1.0",
-    "eslint": "^9.25.1",
-    "happy-dom": "^17.4.6",
-    "lint-staged": "^15.5.1",
-    "nolyfill": "^1.0.44",
-    "simple-git-hooks": "^2.13.0",
-    "taze": "^19.0.4",
-    "typescript": "^5.8.3",
-    "unbuild": "^3.5.0",
+    "@curev/eslint-config": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "bumpp": "catalog:",
+    "eslint": "catalog:",
+    "happy-dom": "catalog:",
+    "lint-staged": "catalog:",
+    "nolyfill": "catalog:",
+    "simple-git-hooks": "catalog:",
+    "taze": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
     "vitepress": "1.6.3",
-    "vitest": "^3.1.2"
+    "vitest": "catalog:"
   },
   "pnpm": {
     "overrides": {

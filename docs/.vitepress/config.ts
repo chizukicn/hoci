@@ -46,6 +46,10 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
     {
       text: "Tabs (标签页)",
       link: "tabs"
+    },
+    {
+      text: "Virtual List (虚拟列表)",
+      link: "virtual-list"
     }
   ];
 }

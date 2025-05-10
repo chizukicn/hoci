@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@hoci/shared": "workspace:*",
+    "@tanstack/virtual-core": "catalog:",
     "maybe-types": "catalog:",
     "tslx": "catalog:"
   }

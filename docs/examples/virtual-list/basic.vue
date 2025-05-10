@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { VirtualItem, VirtualListSlotData } from "@hoci/core";
+import type { VirtualListSlotData } from "@hoci/core";
 import { ref } from "vue";
 
 const MAX_COUNT = 3000;

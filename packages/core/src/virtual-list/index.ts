@@ -1,14 +1,11 @@
-import type { PartialKeys, VirtualizerOptions } from "@tanstack/virtual-core";
-import type { PropType, Ref } from "vue";
-import { defineHookComponent, defineHookProps, elementRef, toRef } from "@hoci/shared";
+import type { VirtualizerOptions as _VirtualizerOptions, PartialKeys, ScrollToOptions, VirtualItem } from "@tanstack/virtual-core";
+import type { CSSProperties, PropType } from "vue";
+import { defineHookComponent, defineHookEmits, defineHookProps, elementRef } from "@hoci/shared";
 import {
   elementScroll,
   observeElementOffset,
   observeElementRect,
-  observeWindowOffset,
-  observeWindowRect,
-  Virtualizer,
-  windowScroll,
+  Virtualizer
 } from "@tanstack/virtual-core";
 import { tryOnScopeDispose } from "@vueuse/core";
 import {
@@ -18,182 +15,153 @@ import {
   watch
 } from "vue";
 
-export * from "@tanstack/virtual-core";
-
-type MaybeRef<T> = T | Ref<T>;
-
-function useVirtualizerBase<
-  TScrollElement extends Element | Window,
-  TItemElement extends Element,
->(
-  options: MaybeRef<VirtualizerOptions<TScrollElement, TItemElement>>,
-): Ref<Virtualizer<TScrollElement, TItemElement>> {
-  const optionsRef = toRef(options);
-  const virtualizer = new Virtualizer(optionsRef.value);
-  const state = shallowRef(virtualizer);
-
-  const cleanup = virtualizer._didMount();
-
-  watch(
-    () => optionsRef.value?.getScrollElement(),
-    (el) => {
-      if (el) {
-        virtualizer._willUpdate();
-      }
-    },
-    {
-      immediate: true,
-    },
-  );
-
-  watch(
-    optionsRef,
-    (options) => {
-      virtualizer.setOptions({
-        ...options,
-        onChange: (instance, sync) => {
-          triggerRef(state);
-          options.onChange?.(instance, sync);
-        },
-      });
-
-      virtualizer._willUpdate();
-      triggerRef(state);
-    },
-    {
-      immediate: true,
-    },
-  );
-
-  tryOnScopeDispose(cleanup);
-  return state;
-}
-
-export function useVirtualizer<
+export type VirtualizerOptions<
   TScrollElement extends Element,
-  TItemElement extends Element,
->(
-  options: MaybeRef<
-    PartialKeys<
-      VirtualizerOptions<TScrollElement, TItemElement>,
-      "observeElementRect" | "observeElementOffset" | "scrollToFn"
-    >
-  >,
-): Ref<Virtualizer<TScrollElement, TItemElement>> {
-  const optionsRef = toRef(options);
-  const virtualizer = useVirtualizerBase<TScrollElement, TItemElement>(
-    computed(() => ({
-      observeElementRect,
-      observeElementOffset,
-      scrollToFn: elementScroll,
-      ...optionsRef.value,
-    })),
-  );
-  return virtualizer;
-}
+  TItemElement extends Element = Element
+> = PartialKeys<
+  _VirtualizerOptions<TScrollElement, TItemElement>,
+  "observeElementRect" | "observeElementOffset" | "scrollToFn" | "getScrollElement" | "initialOffset"
+>;
 
-export function useWindowVirtualizer<TItemElement extends Element>(
-  options: MaybeRef<
-    PartialKeys<
-      VirtualizerOptions<Window, TItemElement>,
-      | "observeElementRect"
-      | "observeElementOffset"
-      | "scrollToFn"
-      | "getScrollElement"
-    >
-  >,
-): Ref<Virtualizer<Window, TItemElement>> {
-  const optionsRef = toRef(options);
-  return useVirtualizerBase<Window, TItemElement>(
-    computed(() => ({
-      getScrollElement: () => (typeof document !== "undefined" ? window : null),
-      observeElementRect: observeWindowRect,
-      observeElementOffset: observeWindowOffset,
-      scrollToFn: windowScroll,
-      initialOffset: () =>
-        typeof document !== "undefined" ? window.scrollY : 0,
-      ...optionsRef.value,
-    })),
-  );
-}
-
-const virtualListProps = defineHookProps({
+export const virtualListProps = defineHookProps({
   options: {
-    type: Object as PropType<PartialKeys<VirtualizerOptions<any, any>, "observeElementRect" | "observeElementOffset" | "scrollToFn" | "getScrollElement">>,
+    type: Object as PropType<PartialKeys<VirtualizerOptions<HTMLElement, HTMLElement>, "observeElementRect" | "observeElementOffset" | "scrollToFn" | "getScrollElement">>,
     default: () => ({})
   },
-  estimateSize: {
-    type: [Function, Number] as PropType<VirtualizerOptions<any, any>["estimateSize"] | number>,
-    default: () => 50
-  },
-  totalCount: {
+  count: {
     type: Number,
     default: () => 0
   },
-  window: {
+  estimateSize: {
+    type: [Function, Number] as PropType<((index: number) => number) | number>,
+    default: () => 50
+  },
+  horizontal: {
     type: Boolean,
     default: () => false
   },
-  isRtl: {
-    type: Boolean,
-    default: () => false
-  }
 });
+
+export const virtualListEmits = defineHookEmits({
+  scrollEnd: () => true,
+  scrollStart: () => true,
+  scroll: (_: number[]) => true
+});
+
+export interface VirtualListSlotData extends VirtualItem, Record<string, unknown> {
+  style: CSSProperties;
+}
+
+export { ScrollToOptions, VirtualItem };
 
 export const useVirtualList = defineHookComponent({
   props: virtualListProps,
-  setup(props) {
+  emits: virtualListEmits,
+  setup(props, context) {
+    const { emit } = context;
     const scrollElementRef = elementRef();
     const propsEstimateSize = props.estimateSize;
     const estimateSize = typeof propsEstimateSize === "function" ? propsEstimateSize : () => propsEstimateSize;
 
-    const virtualizer = props.window
-      ? useWindowVirtualizer({
-          ...props.options,
-          count: props.totalCount,
-          estimateSize,
-          isRtl: props.isRtl
-        })
-      : useVirtualizer({
-          ...props.options,
-          count: props.totalCount,
-          getScrollElement: () => scrollElementRef.value as Element | null,
-          estimateSize
+    const options = computed(() => {
+      const opts = { ...(props.options || {}) };
+      return {
+        ...opts,
+        count: props.count,
+        estimateSize,
+        horizontal: props.horizontal,
+        getScrollElement: () => scrollElementRef.value,
+        observeElementRect,
+        observeElementOffset,
+        scrollToFn: elementScroll
+      };
+    });
+
+    const virtualizer = new Virtualizer(options.value);
+
+    const state = shallowRef(virtualizer);
+
+    const virtualItems = computed(() => state.value.getVirtualItems());
+
+    const virtualIndexes = computed(() => state.value.getVirtualIndexes());
+
+    const totalSize = computed(() => state.value.getTotalSize());
+
+    watch(
+      virtualIndexes,
+      (indexes) => {
+        if (indexes.length === 0) {
+          return;
+        }
+        if (indexes[indexes.length - 1] === props.count - 1) {
+          emit("scrollEnd");
+        } else if (indexes[0] === 0) {
+          emit("scrollStart");
+        }
+        emit("scroll", indexes);
+      },
+      { immediate: true }
+    );
+
+    watch(
+      options,
+      (opts) => {
+        virtualizer.setOptions({
+          ...opts,
+          onChange: (instance, sync) => {
+            opts.onChange?.(instance, sync);
+            triggerRef(state);
+          }
         });
-    const virtualItems = computed(() => virtualizer.value.getVirtualItems());
-    const totalSize = computed(() => virtualizer.value.getTotalSize());
-    const measureElement = (el: Element) => {
-      virtualizer.value.measureElement(el);
+        virtualizer._willUpdate();
+        triggerRef(state);
+      },
+      { immediate: true },
+    );
+
+    watch(
+      scrollElementRef,
+      (el) => {
+        if (el) {
+          virtualizer._willUpdate();
+          triggerRef(state);
+        }
+      },
+      { immediate: true },
+    );
+
+    tryOnScopeDispose(virtualizer._didMount());
+
+    const measureElement = (el: HTMLElement | null) => {
+      virtualizer.measureElement(el);
     };
-    const scrollToIndex = (index: number) => {
-      virtualizer.value.scrollToIndex(index);
+
+    const scrollToIndex = (index: number, options: ScrollToOptions = {
+      behavior: "smooth"
+    }) => {
+      virtualizer.scrollToIndex(index, options);
     };
-    const scrollToOffset = (offset: number) => {
-      virtualizer.value.scrollToOffset(offset);
+
+    const scrollToStart = (options: ScrollToOptions = {
+      behavior: "smooth"
+    }) => {
+      scrollToIndex(0, options);
     };
-    const scrollTo = (index: number, offset: number) => {
-      virtualizer.value.scrollToIndex(index);
-      virtualizer.value.scrollToOffset(offset);
+
+    const scrollToEnd = (options: ScrollToOptions = {
+      behavior: "smooth"
+    }) => {
+      scrollToIndex(props.count - 1, options);
     };
-    const scrollBy = (delta: number) => {
-      virtualizer.value.scrollBy(delta);
-    };
-    const scrollToStart = () => {
-      virtualizer.value.scrollToIndex(0);
-    };
-    const scrollToEnd = () => {
-      virtualizer.value.scrollToIndex(virtualizer.value.getVirtualItems().length - 1);
-    };
+
     return {
       virtualizer,
       virtualItems,
+      virtualIndexes,
       totalSize,
-      measureElement,
       scrollElementRef,
+      measureElement,
       scrollToIndex,
-      scrollToOffset,
-      scrollTo,
-      scrollBy,
       scrollToStart,
       scrollToEnd
     };

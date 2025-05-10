@@ -9,6 +9,12 @@ export default defineBuildConfig({
     emitCJS: true,
     dts: {
       respectExternal: false
+    },
+    esbuild: {
+      jsxFactory: "h",
+      jsxFragment: "Fragment",
+      jsx: "preserve",
+      jsxImportSource: "vue"
     }
   }
 });

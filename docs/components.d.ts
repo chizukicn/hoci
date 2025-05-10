@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     HiAffix: typeof import('hoci')['HiAffix']
+    HiButton: typeof import('hoci')['HiButton']
     HiFileUpload: typeof import('hoci')['HiFileUpload']
     HiIcon: typeof import('hoci')['HiIcon']
     HiItem: typeof import('hoci')['HiItem']
@@ -17,5 +18,6 @@ declare module 'vue' {
     HiSwitch: typeof import('hoci')['HiSwitch']
     HiTabPane: typeof import('hoci')['HiTabPane']
     HiTabs: typeof import('hoci')['HiTabs']
+    HiVirtualList: typeof import('hoci')['HiVirtualList']
   }
 }

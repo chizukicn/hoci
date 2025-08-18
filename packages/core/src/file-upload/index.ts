@@ -54,14 +54,16 @@ export const useFileUpload = defineHookComponent({
     };
 
     useEventListener(fileInputRef, "change", (event: Event) => {
-      const newFiles: File[] = Array.from((event.target as HTMLInputElement).files ?? []);
-      if (newFiles?.length) {
+      const input = event.target as HTMLInputElement;
+      const newFiles: File[] = Array.from(input.files ?? []);
+      if (newFiles.length) {
         if (props.multiple) {
           files.value.push(...newFiles);
         } else {
           files.value = newFiles.slice(newFiles.length - 1);
         }
       }
+      input.value = "";
       const value = toModelValue(files.value);
       emit("update:modelValue", value);
       emit("change", value);

@@ -55,8 +55,9 @@ export default defineConfig({
 ## 在JSX中使用
 在 `jsx` 或 `tsx` 中使用时，推荐以直接引入的方式使用组件
 ```jsx
-import logo from "@/assets/logo.svg";
 import { HiIcon } from "hoci";
+import logo from "@/assets/logo.svg";
+
 export default defineComponent({
   setup() {
     return () => <HiIcon icon={logo} />;

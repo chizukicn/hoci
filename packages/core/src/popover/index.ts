@@ -4,10 +4,10 @@ import { onClickOutside, useVModel } from "@vueuse/core";
 import { px } from "tslx";
 import { computed, nextTick, reactive, watch } from "vue";
 
-export type Placement =
-  "bottom" | "top" | "left" | "right" | "auto" |
-  "top-left" | "top-right" | "bottom-left" | "bottom-right" |
-  "left-top" | "left-bottom" | "right-top" | "right-bottom"
+export type Placement
+  = "bottom" | "top" | "left" | "right" | "auto"
+    | "top-left" | "top-right" | "bottom-left" | "bottom-right"
+    | "left-top" | "left-bottom" | "right-top" | "right-bottom"
 ;
 
 export type TriggerEvent = "click" | "mousedown" | "dblclick" | "hover" | "contextmenu" | "focus" | "touch";

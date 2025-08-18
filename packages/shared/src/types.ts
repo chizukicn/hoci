@@ -31,8 +31,8 @@ export type HookComponent<
   context: SetupContext<E>
 ) => R;
 
-export type Constructor<T> =
-  | {
+export type Constructor<T>
+  = | {
     new (...args: any[]): T & object;
   }
   | {
@@ -41,14 +41,14 @@ export type Constructor<T> =
 
 export type ClassType = string | string[] | Record<string, any>;
 
-export type ActivateEvent =
-  | "click"
-  | "mouseenter"
-  | "mousedown"
-  | "mouseup"
-  | "dblclick"
-  | "contextmenu"
-  | "touchstart"
-  | "touchend";
+export type ActivateEvent
+  = | "click"
+    | "mouseenter"
+    | "mousedown"
+    | "mouseup"
+    | "dblclick"
+    | "contextmenu"
+    | "touchstart"
+    | "touchend";
 
 export type ElementLike = VNode | string | ElementLike[];

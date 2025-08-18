@@ -51,7 +51,7 @@
     "taze": "catalog:",
     "typescript": "catalog:",
     "unbuild": "catalog:",
-    "vitepress": "1.6.3",
+    "vitepress": "1.6.4",
     "vitest": "catalog:"
   },
   "pnpm": {

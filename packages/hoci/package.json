@@ -1,10 +1,10 @@
 {
   "name": "hoci",
+  "type": "module",
   "version": "0.8.1",
   "description": "a headless component library for vue3",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/chizukicn/hoci"

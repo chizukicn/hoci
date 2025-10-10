@@ -1,8 +1,8 @@
 {
   "name": "@hoci/core",
+  "type": "module",
   "version": "0.8.1",
   "description": "",
-  "type": "module",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
   "repository": {

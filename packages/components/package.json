@@ -1,10 +1,10 @@
 {
   "name": "@hoci/components",
+  "type": "module",
   "version": "0.8.1",
   "description": "",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/chizukicn/hoci",

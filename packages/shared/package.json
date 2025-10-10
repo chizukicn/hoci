@@ -1,5 +1,6 @@
 {
   "name": "@hoci/shared",
+  "type": "module",
   "version": "0.8.1",
   "description": "",
   "author": "Chizuki <chizukicn@outlook.com>",
@@ -11,20 +12,19 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./*": "./dist/*"
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub",
+    "build": "tsdown",
     "prepublish": "pnpm build"
   },
   "peerDependencies": {

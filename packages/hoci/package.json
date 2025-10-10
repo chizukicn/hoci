@@ -4,32 +4,31 @@
   "description": "a headless component library for vue3",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/chizukicn/hoci"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./resolver": {
-      "types": "./dist/resolver.d.ts",
-      "import": "./dist/resolver.mjs",
+      "import": "./dist/resolver.js",
       "require": "./dist/resolver.cjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "files": [
     "*.d.ts",
     "dist/"
   ],
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub",
+    "build": "tsdown",
     "prepublish": "pnpm build"
   },
   "peerDependencies": {

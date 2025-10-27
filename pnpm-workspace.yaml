@@ -27,3 +27,8 @@ catalog:
   unocss: ^66.5.2
   unplugin-vue-components: ^30.0.0
   vitest: ^4.0.0
+minimumReleaseAge: 1440
+gitBranchLockfile: true
+mergeGitBranchLockfilesBranchPattern:
+  - main
+  - release*

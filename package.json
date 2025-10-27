@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.8.1",
   "private": true,
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@10.19.0",
   "description": "hook ui .",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",

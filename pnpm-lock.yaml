@@ -39,6 +39,9 @@ catalogs:
     fs-extra:
       specifier: ^11.3.2
       version: 11.3.2
+    happy-dom:
+      specifier: ^20.0.0
+      version: 20.0.8
     lint-staged:
       specifier: ^16.2.3
       version: 16.2.6
@@ -58,8 +61,8 @@ catalogs:
       specifier: ^19.7.0
       version: 19.8.1
     tslx:
-      specifier: ^0.1.1
-      version: 0.1.1
+      specifier: ^0.2.0
+      version: 0.2.0
     type-fest:
       specifier: ^5.0.1
       version: 5.1.0
@@ -182,7 +185,7 @@ importers:
         version: 0.2.0
       tslx:
         specifier: 'catalog:'
-        version: 0.1.1
+        version: 0.2.0
       vue:
         specifier: ^3.0.0-0
         version: 3.5.13(typescript@5.9.3)
@@ -200,7 +203,7 @@ importers:
         version: 0.2.0
       tslx:
         specifier: 'catalog:'
-        version: 0.1.1
+        version: 0.2.0
       vue:
         specifier: ^3.0.0-0
         version: 3.5.13(typescript@5.9.3)
@@ -3940,8 +3943,8 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  tslx@0.1.1:
-    resolution: {integrity: sha512-MYh2I7iw8owRx3xFVq8DXp3JWoJ7G7oMA5uUrCwGvuOipV6w9XvlJKo3yVJMh75Y+5caIaYhCsUZ1WTnxQRk7A==}
+  tslx@0.2.0:
+    resolution: {integrity: sha512-pUxUhQQ08A2wb5o0AsYacEmKbxaykFZ3nzNZ+IX7MKba5HI4HW8y/YGXGFh40RQZ7n3XDX7x9VBnAly2/dg51g==}
 
   tsx@4.19.0:
     resolution: {integrity: sha512-bV30kM7bsLZKZIOCHeMNVMJ32/LuJzLVajkQI/qf92J2Qr08ueLQvW00PUZGiuLPP760UINwupgUj8qrSCPUKg==}
@@ -8183,9 +8186,10 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tslx@0.1.1:
+  tslx@0.2.0:
     dependencies:
       csstype: 3.1.3
+      maybe-types: 0.2.0
 
   tsx@4.19.0:
     dependencies:

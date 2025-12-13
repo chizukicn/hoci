@@ -9,9 +9,6 @@ catalogs:
     '@curev/eslint-config':
       specifier: ^0.6.0
       version: 0.6.0
-    '@iconify-json/carbon':
-      specifier: ^1.2.13
-      version: 1.2.14
     '@tanstack/virtual-core':
       specifier: ^3.13.12
       version: 3.13.12
@@ -146,7 +143,7 @@ importers:
     devDependencies:
       '@iconify-json/carbon':
         specifier: 'catalog:'
-        version: 1.2.14
+        version: 1.2.15
       '@types/fs-extra':
         specifier: 'catalog:'
         version: 11.0.4
@@ -1148,8 +1145,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify-json/carbon@1.2.14':
-    resolution: {integrity: sha512-33u6uGiYJ79Dfp72peT+PBMcjxzi+NyJLpqYRX8pnw0zchsUW7Us2xecgvkWgD83KYcbe6hufyWlHFU9y7fb/Q==}
+  '@iconify-json/carbon@1.2.15':
+    resolution: {integrity: sha512-9tW0nZY5QtKkMhuYzW09BM1345SyXNuA+gx2ub0j/fnfHOD5XVimMJ/D76H3tTez25NJbPYCLIQoFhvJc1HVBQ==}
 
   '@iconify-json/simple-icons@1.2.29':
     resolution: {integrity: sha512-KYrxmxtRz6iOAulRiUsIBMUuXek+H+Evwf8UvYPIkbQ+KDoOqTegHx3q/w3GDDVC0qJYB+D3hXPMZcpm78qIuA==}
@@ -5274,7 +5271,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify-json/carbon@1.2.14':
+  '@iconify-json/carbon@1.2.15':
     dependencies:
       '@iconify/types': 2.0.0
 

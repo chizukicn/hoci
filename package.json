@@ -49,7 +49,7 @@
     "nolyfill": "catalog:",
     "simple-git-hooks": "catalog:",
     "taze": "catalog:",
-    "tsdown": "^0.15.6",
+    "tsdown": "^0.17.0",
     "typescript": "catalog:",
     "unbuild": "catalog:",
     "vitepress": "1.6.4",

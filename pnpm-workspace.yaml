@@ -6,7 +6,7 @@ catalog:
   "@iconify-json/carbon": ^1.2.13
   "@tanstack/virtual-core": ^3.13.12
   "@types/fs-extra": ^11.0.4
-  "@types/node": ^22.18.9
+  "@types/node": ^24.0.0
   "@vitest/coverage-v8": ^4.0.0
   "@vue/test-utils": ^2.4.6
   bumpp: ^10.3.1

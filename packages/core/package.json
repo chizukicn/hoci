@@ -11,29 +11,24 @@
     "directory": "packages/core"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "tsdown",
-    "prepublish": "pnpm build"
+    "build": "tsdown"
   },
   "peerDependencies": {
-    "vue": "^3.0.0-0"
+    "@vueuse/core": ">=9.12.0",
+    "vue": ">=3.3.0"
   },
   "dependencies": {
     "@hoci/shared": "workspace:*",
-    "@tanstack/virtual-core": "catalog:",
-    "maybe-types": "catalog:",
-    "tslx": "catalog:"
+    "@tanstack/virtual-core": "catalog:ui",
+    "maybe-types": "catalog:types",
+    "tslx": "catalog:utils"
   }
 }

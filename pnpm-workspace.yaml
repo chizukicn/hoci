@@ -2,40 +2,40 @@ packages:
   - packages/**
   - docs
 catalogs:
-  # 开发工具
-  dev:
-    '@curev/eslint-config': ^0.6.0
-    eslint: ^9.39.2
-    lint-staged: ^16.2.7
-    simple-git-hooks: ^2.13.1
-    bumpp: ^10.4.0
-    taze: ^19.9.2
-    vitepress: ^1.6.4
-
-  # 类型定义
-  types:
-    '@types/node': ^25.1.0
-    '@types/fs-extra': ^11.0.4
-    maybe-types: ^0.2.0
-    type-fest: ^5.4.2
-    typescript: ^5.9.3
-
-  # 测试框架
-  test:
-    vitest: ^4.0.18
-    '@vitest/coverage-v8': ^4.0.18
-    '@vue/test-utils': ^2.4.6
-    happy-dom: ^20.4.0
-
   # 构建工具
   build:
     tsdown: ^0.20.1
     unbuild: ^3.6.1
 
+  # 开发工具
+  dev:
+    "@curev/eslint-config": ^0.6.0
+    bumpp: ^10.4.0
+    eslint: ^9.39.2
+    lint-staged: ^16.2.7
+    simple-git-hooks: ^2.13.1
+    taze: ^19.9.2
+    vitepress: ^1.6.4
+
+  # 测试框架
+  test:
+    "@vitest/coverage-v8": ^4.0.18
+    "@vue/test-utils": ^2.4.6
+    happy-dom: ^20.4.0
+
+    vitest: ^4.0.18
+  # 类型定义
+  types:
+    "@types/fs-extra": ^11.0.4
+    "@types/node": ^25.1.0
+    maybe-types: ^0.2.0
+    type-fest: ^5.4.2
+    typescript: ^5.9.3
+
   # UI/样式
   ui:
-    '@iconify-json/carbon': ^1.2.18
-    '@tanstack/virtual-core': ^3.13.18
+    "@iconify-json/carbon": ^1.2.18
+    "@tanstack/virtual-core": ^3.13.18
     unocss: ^66.6.0
     unplugin-vue-components: ^31.0.0
 

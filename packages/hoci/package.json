@@ -22,6 +22,7 @@
     "build": "tsdown"
   },
   "peerDependencies": {
+    "@vueuse/core": ">=9.12.0",
     "unplugin-vue-components": "^0.25.2 || ^0.27.0 || ^28.0.0 || ^29.0.0 || ^30.0.0",
     "vue": ">=3.3.0"
   },

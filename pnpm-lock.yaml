@@ -179,6 +179,9 @@ importers:
       '@hoci/shared':
         specifier: workspace:*
         version: link:../shared
+      '@vueuse/core':
+        specifier: '>=9.12.0'
+        version: 12.8.2(typescript@5.9.3)
       maybe-types:
         specifier: catalog:types
         version: 0.2.0
@@ -218,6 +221,9 @@ importers:
       '@hoci/core':
         specifier: workspace:*
         version: link:../core
+      '@vueuse/core':
+        specifier: '>=9.12.0'
+        version: 12.8.2(typescript@5.9.3)
       vue:
         specifier: '>=3.3.0'
         version: 3.5.13(typescript@5.9.3)

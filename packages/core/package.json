@@ -22,7 +22,7 @@
     "build": "tsdown"
   },
   "peerDependencies": {
-    "vue": "^3.0.0-0"
+    "vue": ">=3.3.0"
   },
   "dependencies": {
     "@hoci/shared": "workspace:*",

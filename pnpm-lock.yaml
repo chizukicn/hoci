@@ -186,7 +186,7 @@ importers:
         specifier: catalog:utils
         version: 0.3.0
       vue:
-        specifier: ^3.0.0-0
+        specifier: '>=3.3.0'
         version: 3.5.13(typescript@5.9.3)
 
   packages/core:
@@ -204,7 +204,7 @@ importers:
         specifier: catalog:utils
         version: 0.3.0
       vue:
-        specifier: ^3.0.0-0
+        specifier: '>=3.3.0'
         version: 3.5.13(typescript@5.9.3)
 
   packages/hoci:
@@ -216,7 +216,7 @@ importers:
         specifier: workspace:*
         version: link:../core
       vue:
-        specifier: ^3.0.0
+        specifier: '>=3.3.0'
         version: 3.5.13(typescript@5.9.3)
     optionalDependencies:
       unplugin-vue-components:
@@ -238,7 +238,7 @@ importers:
         specifier: catalog:types
         version: 5.4.2
       vue:
-        specifier: ^3.0.0-0
+        specifier: '>=3.3.0'
         version: 3.5.13(typescript@5.9.3)
 
 packages:

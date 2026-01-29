@@ -29,6 +29,7 @@
   "dependencies": {
     "@hoci/core": "workspace:*",
     "@hoci/shared": "workspace:*",
+    "@tanstack/virtual-core": "catalog:ui",
     "maybe-types": "catalog:types",
     "tslx": "catalog:utils"
   }

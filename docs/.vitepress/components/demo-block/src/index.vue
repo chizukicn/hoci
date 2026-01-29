@@ -36,7 +36,7 @@ const [value, toggle] = useToggle();
   </ClientOnly>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="css">
 @keyframes fade-in {
   from {
     opacity: 0;

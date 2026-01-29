@@ -10,25 +10,16 @@
     "url": "https://github.com/chizukicn/hoci"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./resolver": {
-      "import": "./dist/resolver.js",
-      "require": "./dist/resolver.cjs"
-    },
+    ".": "./dist/index.js",
+    "./resolver": "./dist/resolver.js",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "tsdown",
-    "prepublish": "pnpm build"
+    "build": "tsdown"
   },
   "peerDependencies": {
     "unplugin-vue-components": "^0.25.2 || ^0.27.0 || ^28.0.0 || ^29.0.0 || ^30.0.0",
@@ -39,6 +30,6 @@
     "@hoci/core": "workspace:*"
   },
   "optionalDependencies": {
-    "unplugin-vue-components": "catalog:"
+    "unplugin-vue-components": "catalog:ui"
   }
 }

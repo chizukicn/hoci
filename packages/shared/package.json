@@ -11,29 +11,23 @@
     "directory": "packages/shared"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.cts",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "tsdown",
-    "prepublish": "pnpm build"
+    "build": "tsdown"
   },
   "peerDependencies": {
     "@vueuse/core": ">=9.12.0",
     "vue": "^3.0.0-0"
   },
   "dependencies": {
-    "defu": "catalog:",
-    "maybe-types": "catalog:",
-    "type-fest": "catalog:"
+    "defu": "catalog:utils",
+    "maybe-types": "catalog:types",
+    "type-fest": "catalog:types"
   }
 }

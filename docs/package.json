@@ -12,12 +12,11 @@
     "hoci": "workspace:*"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "catalog:",
-    "@types/fs-extra": "catalog:",
-    "fs-extra": "catalog:",
-    "scss": "catalog:",
-    "unocss": "catalog:",
-    "unplugin-vue-components": "catalog:",
-    "vitepress": "^1.6.4"
+    "@iconify-json/carbon": "catalog:ui",
+    "@types/fs-extra": "catalog:types",
+    "fs-extra": "catalog:utils",
+    "unocss": "catalog:ui",
+    "unplugin-vue-components": "catalog:ui",
+    "vitepress": "catalog:dev"
   }
 }

@@ -16,6 +16,7 @@ catalogs:
     simple-git-hooks: ^2.13.1
     taze: ^19.9.2
     vitepress: ^1.6.4
+    vitepress-plugin-llms: ^1.11.0
 
   # 测试框架
   test:

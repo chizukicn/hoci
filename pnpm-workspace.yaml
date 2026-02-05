@@ -14,13 +14,13 @@ catalogs:
     bumpp: ^10.4.0
     eslint: ^9.39.2
     lint-staged: ^16.2.7
+    mermaid: ^11.12.2
+
     simple-git-hooks: ^2.13.1
     taze: ^19.9.2
     vitepress: ^1.6.4
     vitepress-plugin-llms: ^1.11.0
     vitepress-plugin-mermaid: ^2.0.17
-    mermaid: ^11.12.2
-
   # 测试框架
   test:
     "@vitest/coverage-v8": ^4.0.18

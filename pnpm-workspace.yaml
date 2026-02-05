@@ -10,6 +10,7 @@ catalogs:
   # 开发工具
   dev:
     "@curev/eslint-config": ^0.6.0
+    "@vitejs/plugin-vue-jsx": ^5.1.4
     bumpp: ^10.4.0
     eslint: ^9.39.2
     lint-staged: ^16.2.7
@@ -17,6 +18,8 @@ catalogs:
     taze: ^19.9.2
     vitepress: ^1.6.4
     vitepress-plugin-llms: ^1.11.0
+    vitepress-plugin-mermaid: ^2.0.17
+    mermaid: ^11.12.2
 
   # 测试框架
   test:

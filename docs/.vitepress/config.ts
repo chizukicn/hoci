@@ -1,5 +1,6 @@
 import type { DefaultTheme } from "vitepress";
 import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
 import { applyPlugins } from "./plugins/code";
 
 function sidebars(): DefaultTheme.SidebarItem[] {
@@ -32,6 +33,10 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
       link: "selection"
     },
     {
+      text: "Showable (可显示)",
+      link: "showable"
+    },
+    {
       text: "Switch (开关)",
       link: "switch"
     },
@@ -55,7 +60,7 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
 }
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: "hoci",
   description: "a headless components library for vue3",
   markdown: {
@@ -96,4 +101,4 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/chizukicn/hoci" }
     ]
   }
-});
+}));

@@ -14,10 +14,13 @@
   "devDependencies": {
     "@iconify-json/carbon": "catalog:ui",
     "@types/fs-extra": "catalog:types",
+    "@vitejs/plugin-vue-jsx": "catalog:dev",
     "fs-extra": "catalog:utils",
+    "mermaid": "catalog:dev",
     "unocss": "catalog:ui",
     "unplugin-vue-components": "catalog:ui",
     "vitepress": "catalog:dev",
-    "vitepress-plugin-llms": "catalog:dev"
+    "vitepress-plugin-llms": "catalog:dev",
+    "vitepress-plugin-mermaid": "catalog:dev"
   }
 }

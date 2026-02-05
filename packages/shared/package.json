@@ -28,6 +28,7 @@
   "dependencies": {
     "defu": "catalog:utils",
     "maybe-types": "catalog:types",
+    "tslx": "catalog:utils",
     "type-fest": "catalog:types"
   }
 }

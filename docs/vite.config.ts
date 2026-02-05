@@ -3,6 +3,7 @@ import { presetIcons, presetUno } from "unocss";
 import UnoCSS from "unocss/vite";
 import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
+import llmstxt from "vitepress-plugin-llms";
 import { alias } from "../alias";
 
 export default defineConfig({
@@ -47,6 +48,9 @@ export default defineConfig({
       resolvers: [
         HociResolver()
       ]
+    }),
+    llmstxt({
+      domain: "https://hoci.netlify.app"
     })
   ]
 });

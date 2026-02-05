@@ -17,6 +17,7 @@
     "fs-extra": "catalog:utils",
     "unocss": "catalog:ui",
     "unplugin-vue-components": "catalog:ui",
-    "vitepress": "catalog:dev"
+    "vitepress": "catalog:dev",
+    "vitepress-plugin-llms": "^1.11.0"
   }
 }

@@ -1,5 +1,5 @@
 import { HociResolver } from "hoci/resolver";
-import { presetIcons, presetUno } from "unocss";
+import { presetIcons, presetWind4 } from "unocss";
 import UnoCSS from "unocss/vite";
 import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
@@ -23,7 +23,7 @@ export default defineConfig({
   plugins: [
     UnoCSS({
       presets: [
-        presetUno(),
+        presetWind4(),
         presetIcons()
       ],
       shortcuts: [

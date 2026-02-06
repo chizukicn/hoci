@@ -2,12 +2,12 @@ packages:
   - packages/**
   - docs
 catalogs:
-  # 构建工具
+  # build tools
   build:
     tsdown: ^0.20.3
     unbuild: ^3.6.1
 
-  # 开发工具
+  # dev tools
   dev:
     "@curev/eslint-config": ^0.6.0
     bumpp: ^10.4.1
@@ -18,14 +18,14 @@ catalogs:
     vitepress: ^1.6.4
     vitepress-plugin-llms: ^1.11.0
 
-  # 测试框架
+  # test framework
   test:
     "@vitest/coverage-v8": ^4.0.18
     "@vue/test-utils": ^2.4.6
     happy-dom: ^20.5.0
 
     vitest: ^4.0.18
-  # 类型定义
+  # type definitions
   types:
     "@types/fs-extra": ^11.0.4
     "@types/node": ^25.2.1
@@ -33,14 +33,14 @@ catalogs:
     type-fest: ^5.4.3
     typescript: ^5.9.3
 
-  # UI/样式
+  # UI/styles
   ui:
     "@iconify-json/carbon": ^1.2.18
     "@tanstack/virtual-core": ^3.13.18
     unocss: ^66.6.0
     unplugin-vue-components: ^31.0.0
 
-  # 工具库
+  # utility libraries
   utils:
     defu: ^6.1.4
     fs-extra: ^11.3.3

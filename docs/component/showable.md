@@ -16,24 +16,6 @@ import {
 
 ## 快速开始
 
-### 架构示意图
-
-```mermaid
-graph TB
-    A["外部调用方<br/>dialogRef.value?.show()"]
-    B["Wrapper 弹出层<br/>useShowableContextProvider"]
-    C["Content 内容层<br/>useShowableInstance<br/>"]
-
-    A -->|showableRef 绑定| B
-    B -->|expose 暴露 show| A
-    B -->|上下文传递| C
-    C -.->|反向控制| B
-
-    style A fill:#e1f5ff,stroke:#01579b,stroke-width:2px
-    style B fill:#fff4e1,stroke:#e65100,stroke-width:2px
-    style C fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
-```
-
 ```vue
 <script setup>
 import {

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useDemoI18n } from "@demo-i18n";
 import { ref } from "vue";
 
 const files = ref<File[]>([]);
+const { t } = useDemoI18n();
 
 function formatFileSize(bytes: number) {
   if (bytes === 0) {
@@ -11,7 +13,7 @@ function formatFileSize(bytes: number) {
   const sizes = ["B", "KB", "MB", "GB", "TB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return `${(bytes / k ** i).toFixed(2)} ${sizes[i]}`;
-};
+}
 </script>
 
 <template>
@@ -20,7 +22,7 @@ function formatFileSize(bytes: number) {
       <div v-if="files.length === 0">
         <i class="hi-icon-upload text-32px text-gray-500 block text-center" />
         <div class="mt-3 text-gray-500 text-center">
-          点击上传多个文件
+          {{ t("Click to upload multiple files", "点击上传多个文件") }}
         </div>
       </div>
       <div v-else class="flex flex-col gap-2">
@@ -36,7 +38,7 @@ function formatFileSize(bytes: number) {
         </div>
         <div class="flex items-center justify-center p-3 text-indigo-500 bg-gray-50 rounded-md mt-2">
           <i class="hi-icon-plus mr-2" />
-          <span>继续添加</span>
+          <span>{{ t("Add more", "继续添加") }}</span>
         </div>
       </div>
     </div>

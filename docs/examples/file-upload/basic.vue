@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useDemoI18n } from "@demo-i18n";
 import { ref } from "vue";
 
 const file = ref<File>();
+const { t } = useDemoI18n();
 
 function formatFileSize(bytes: number) {
   if (bytes === 0) {
@@ -20,7 +22,7 @@ function formatFileSize(bytes: number) {
       <div v-if="!file">
         <i class="hi-icon-upload text-32px text-gray-500" />
         <div class="mt-3 text-gray-500">
-          点击上传文件
+          {{ t("Click to upload file", "点击上传文件") }}
         </div>
       </div>
       <div v-else class="text-center">

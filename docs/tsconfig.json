@@ -10,7 +10,8 @@
       "hoci": ["../packages/hoci/index.ts"],
       "@hoci/components": ["../packages/components/index.ts"],
       "@hoci/shared": ["../packages/shared/index.ts"],
-      "@hoci/core": ["../packages/core/index.ts"]
+      "@hoci/core": ["../packages/core/index.ts"],
+      "@demo-i18n": ["./.vitepress/theme/composables/demo-i18n.ts"]
     },
     "resolveJsonModule": true,
     "strict": true,

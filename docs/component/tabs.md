@@ -1,66 +1,72 @@
-# Tabs (标签页)
+# Tabs
 
-> 💡 Tabs组件是基于[Selection](./selection.md)组件实现的，因此大部分参数都继承自Selection组件
+> Tabs is built on [Selection](./selection.md), so most props are inherited from Selection.
 
-Tabs组件用于在同一容器内切换不同的内容区域。
+Tabs switch between different content panels in one container.
 
-## 基本用法
-通过使用`HiTabs`组件，可以实现一个标签页，并使用`HiTabPane`或是`HiItem`组件来定义每个标签页的内容。
+## Basic usage
+
+Use `HiTabs` with `HiTabPane` or `HiItem` to define each tab and its content.
+
 <demo src="../examples/tabs/basic.vue"/>
 
-## Tabs Props (参数)
+## Tabs Props
 
-**继承自 Selection 的通用参数：**
+**From Selection:**
 
-| 名称 | 类型 | 默认值 | 说明 |
+| Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| model-value | `any` | `undefined` | 当前激活的标签页值，支持v-model |
-| active-event | `ActiveEvent` | `click` | 触发选中的事件 |
-| item-class | `ClassType` | - | 标签项的类名 |
-| active-class | `ClassType` | - | 激活标签项的类名 |
-| unactive-class | `ClassType` | - | 未激活标签项的类名 |
-| disabled-class | `ClassType` | - | 禁用标签项的类名 |
-| multiple | `boolean` | `false` | 是否多选 |
-| clearable | `boolean` | `false` | 是否可以不选择任何标签 |
+| model-value | `any` | `undefined` | Active tab value; use with v-model |
+| active-event | `ActiveEvent` | `click` | Event that activates a tab |
+| item-class | `ClassType` | - | Class for tab items |
+| active-class | `ClassType` | - | Class for active tab |
+| unactive-class | `ClassType` | - | Class for inactive tab |
+| disabled-class | `ClassType` | - | Class for disabled tab |
+| multiple | `boolean` | `false` | Allow multiple active tabs |
+| clearable | `boolean` | `false` | Allow no active tab |
 
-**Tabs 增加参数：**
+**Tabs-specific:**
 
-| 名称 | 类型 | 默认值 | 说明 |
+| Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| header-class | `ClassType` | - | 标签头部的自定义类名 |
-| as | `string` | `div` | 外层容器标签名 |
-| header-as | `string` | `div` | 头部容器标签名 |
-| content-as | `string` | `div` | 内容容器标签名 |
-| content-class | `ClassType` | - | 内容区域的自定义类名 |
-| keep-alive | `boolean \| KeepAliveProps` | `false` | 是否缓存内容区域 |
+| header-class | `ClassType` | - | Class for tab header |
+| as | `string` | `div` | Root container tag |
+| header-as | `string` | `div` | Header container tag |
+| content-as | `string` | `div` | Content container tag |
+| content-class | `ClassType` | - | Class for content area |
+| keep-alive | `boolean \| KeepAliveProps` | `false` | Whether to keep inactive content mounted |
 
-## Tabs Events (事件)
-| 名称 | 说明 |
-| --- | --- |
-| update:model-value | 激活标签变化时触发 |
-| change | 激活标签变化时触发 |
+## Tabs Events
 
-## Tabs Slots (插槽)
-| 名称 | 说明 |
+| Name | Description |
 | --- | --- |
-| default | 用于自定义标签头内容 |
-| content | 用于自定义内容区域，参数为`{ component }` |
+| update:model-value | Emitted when active tab changes |
+| change | Emitted when active tab changes |
+
+## Tabs Slots
+
+| Name | Description |
+| --- | --- |
+| default | Tab header content |
+| content | Content area; slot props: `{ component }` |
 
 ---
 
-# TabPane (标签页面板)
+# TabPane
 
-TabPane用于定义每个标签页的内容。
+TabPane defines each tab’s value and content.
 
-## TabPane Props (参数)
-| 名称 | 类型 | 默认值 | 说明 |
+## TabPane Props
+
+| Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | `any` | `undefined` | 标签页的唯一值 |
-| label | `string` | - | 标签页显示的文本 |
-| active-event | `ActiveEvent` | `click` | 触发选中的事件 |
-| disabled | `boolean` | `false` | 是否禁用 |
+| value | `any` | `undefined` | Tab value |
+| label | `string` | - | Tab label text |
+| active-event | `ActiveEvent` | `click` | Event that activates this tab |
+| disabled | `boolean` | `false` | Whether disabled |
 
-## TabPane Slots (插槽)
-| 名称 | 说明 |
+## TabPane Slots
+
+| Name | Description |
 | --- | --- |
-| default | 标签页内容 |
+| default | Tab panel content |

@@ -1,11 +1,14 @@
 <script lang="ts" setup>
+import { useDemoI18n } from "@demo-i18n";
+
+const { t } = useDemoI18n();
 </script>
 
 <template>
   <div class="space-y-3">
     <hi-affix :offset="30">
       <div class="px-6 text-white inline-flex border-box justify-center py-2 bg-blue-300 rounded-3">
-        Offset top 30px
+        {{ t("Offset top 30px", "距顶部 30px 固定") }}
       </div>
     </hi-affix>
   </div>

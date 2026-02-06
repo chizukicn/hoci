@@ -1,4 +1,5 @@
 <script lang="ts">
+import { useDemoI18n } from "@demo-i18n";
 import {
   onShowableHide,
   showableRef,
@@ -7,35 +8,35 @@ import {
 } from "hoci";
 import { defineComponent, h, ref, Teleport } from "vue";
 
-// 创建 showableRef 用于外部控制
 const dialogRef = showableRef();
-
-// 记录弹窗按钮点击结果
 const lastResult = ref("");
 
-const statusText: Record<string, string> = {
-  none: "关闭",
-  ok: "确认",
-  cancel: "取消",
-  reject: "拒绝"
+const statusTextMap = {
+  en: { none: "Closed", ok: "Confirm", cancel: "Cancel", reject: "Reject" },
+  zh: { none: "关闭", ok: "确认", cancel: "取消", reject: "拒绝" }
 };
 
-// 弹窗的具体内容
 const DialogContent = defineComponent({
   setup() {
     const instance = useShowableInstance({
-      header: "提示"
+      header: "Prompt"
     });
     const { header, confirm, reject, cancel } = instance;
+    const { t, lang } = useDemoI18n();
 
     onShowableHide((status) => {
-      lastResult.value = `点击了：${statusText[status] ?? status}`;
+      const statusText = lang.value === "zh-CN" ? statusTextMap.zh : statusTextMap.en;
+      lastResult.value = lang.value === "zh-CN"
+        ? `点击了：${statusText[status as keyof typeof statusTextMap.zh] ?? status}`
+        : `Clicked: ${statusText[status as keyof typeof statusTextMap.en] ?? status}`;
     });
 
-    return () =>
-      h("div", [
-        h("div", { class: "text-lg font-semibold mb-4" }, header.value || "提示"),
-        h("div", { class: "text-gray-600 mb-6" }, "这里是弹窗内容。"),
+    return () => {
+      const headerLabel = t("Prompt", "提示");
+      const contentLabel = t("This is the dialog content.", "这里是弹窗内容。");
+      return h("div", [
+        h("div", { class: "text-lg font-semibold mb-4" }, header.value || headerLabel),
+        h("div", { class: "text-gray-600 mb-6" }, contentLabel),
         h("div", { class: "flex justify-end gap-2 flex-wrap" }, [
           h(
             "button",
@@ -43,7 +44,7 @@ const DialogContent = defineComponent({
               class: "px-4 py-2 rounded border border-gray-300 hover:bg-gray-50",
               onClick: cancel
             },
-            "取消"
+            t("Cancel", "取消")
           ),
           h(
             "button",
@@ -51,7 +52,7 @@ const DialogContent = defineComponent({
               class: "px-4 py-2 rounded border border-amber-300 hover:bg-amber-50 text-amber-700",
               onClick: reject
             },
-            "拒绝"
+            t("Reject", "拒绝")
           ),
           h(
             "button",
@@ -59,14 +60,14 @@ const DialogContent = defineComponent({
               class: "px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600",
               onClick: confirm
             },
-            "确认"
+            t("Confirm", "确认")
           )
         ])
       ]);
+    };
   }
 });
 
-// Dialog 作为弹出的 Wrapper 层
 const Dialog = defineComponent({
   setup(_, { expose }) {
     const { visible, cancel, show, close } = useShowableContextProvider();
@@ -99,12 +100,13 @@ const Dialog = defineComponent({
 
 export default defineComponent({
   setup() {
+    const { t } = useDemoI18n();
     return () =>
       h("div", { class: "flex flex-col gap-4" }, [
         h("div", { class: "flex flex-col gap-2" }, [
           lastResult.value
             ? h("div", { class: "text-sm text-gray-600" }, [
-                "上次结果：",
+                t("Last result: ", "上次结果："),
                 lastResult.value
               ])
             : null,
@@ -114,7 +116,7 @@ export default defineComponent({
               class: "px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 w-fit",
               onClick: () => dialogRef.value?.show()
             },
-            "打开弹窗"
+            t("Open dialog", "打开弹窗")
           )
         ]),
         h(Dialog, { ref: dialogRef })

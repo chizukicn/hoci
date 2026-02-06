@@ -1,4 +1,7 @@
 <script setup>
+import { useDemoI18n } from "@demo-i18n";
+
+const { t } = useDemoI18n();
 </script>
 
 <template>
@@ -11,7 +14,7 @@
       <hi-item v-for="i in 4" :key="i" :disabled="i === 4">
         <template #default="scope">
           <div :class="scope.active ? 'i-carbon:checkbox-checked' : 'i-carbon-checkbox'" />
-          <div>checkbox {{ i }}</div>
+          <div>{{ t("checkbox", "复选框") }} {{ i }}</div>
         </template>
       </hi-item>
     </hi-selection>

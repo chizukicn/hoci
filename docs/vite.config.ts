@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { HociResolver } from "hoci/resolver";
 import { presetIcons, presetWind4 } from "unocss";
 import UnoCSS from "unocss/vite";
@@ -5,6 +7,8 @@ import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
 import llmstxt from "vitepress-plugin-llms";
 import { alias } from "../alias";
+
+const details = readFileSync(join(__dirname, "details.md"), "utf-8");
 
 export default defineConfig({
   optimizeDeps: {
@@ -50,7 +54,9 @@ export default defineConfig({
       ]
     }),
     llmstxt({
-      domain: "https://hoci.netlify.app"
+      details,
+      domain: "https://hoci.netlify.app",
+      ignoreFiles: ["zh/**/*.md"],
     })
   ]
 });

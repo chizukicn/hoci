@@ -12,11 +12,7 @@ export const HiPopover = defineComponent({
   },
   emits: popoverEmits,
   setup(props, context) {
-    const { show, close, triggerRef, popupClass, events, popupRef, popupStyle } = usePopover(props, context);
-    context.expose({
-      show,
-      close
-    });
+    const { triggerRef, popupClass, events, popupRef, popupStyle } = usePopover(props, context);
     return () => {
       let content = h(
         "div",

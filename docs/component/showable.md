@@ -85,12 +85,6 @@ const Content = defineComponent({
 
 <demo src="../examples/showable/dialog.vue"/>
 
-## 结合 Popover
-
-HiPopover 内部使用 `useShowableContextProvider` 并对外暴露 `show`、`close`。将 `showableRef` 绑定到 HiPopover 后，即可在外部通过 `popoverRef?.show()` 打开气泡框。
-
-<demo src="../examples/showable/popover.vue"/>
-
 ## 带参数打开
 
 调用 `instance.show(data)` 时传入参数，内部通过 `onShowableShow` 或 `useShowableInstance({ onShow })` 接收参数。

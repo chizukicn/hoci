@@ -1,6 +1,6 @@
 import type { PropType } from "vue";
-import { defineHookComponent, defineHookEmits, defineHookProps, elementRef, useShowableContextProvider } from "@hoci/shared";
-import { onClickOutside, syncRef, useVModel } from "@vueuse/core";
+import { defineHookComponent, defineHookEmits, defineHookProps, elementRef } from "@hoci/shared";
+import { onClickOutside, useVModel } from "@vueuse/core";
 import { px } from "tslx";
 import { computed, nextTick, reactive, watch } from "vue";
 
@@ -51,15 +51,10 @@ export const popoverEmits = defineHookEmits(["update:visible", "change"]);
 export const usePopover = defineHookComponent({
   props: popoverProps,
   emits: popoverEmits,
-  setup(props, { emit }) {
-    const { show, close, visible } = useShowableContextProvider();
-
-    syncRef(
-      visible,
-      useVModel(props, "visible", emit, {
-        passive: true
-      })
-    );
+  setup(props, context) {
+    const visible = useVModel(props, "visible", context.emit, {
+      passive: true
+    });
 
     const triggerRef = elementRef();
     const popupRef = elementRef();
@@ -74,7 +69,7 @@ export const usePopover = defineHookComponent({
     const toggle = (_value?: boolean) => {
       const value = _value ?? !visible.value;
       visible.value = value;
-      emit("change", value);
+      context.emit("change", value);
     };
 
     function onMouseover() {
@@ -269,8 +264,6 @@ export const usePopover = defineHookComponent({
     });
 
     return {
-      show,
-      close,
       events,
       dropdownPosition,
       triggerRef,

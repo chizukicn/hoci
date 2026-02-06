@@ -49,8 +49,8 @@ const dialogRef = showableRef();
 // Wrapper 仅使用 useShowableContextProvider，并通过 expose 暴露 show 供外部 ref 调用
 const Provider = defineComponent({
   setup(_, { expose }) {
-    const { show } = useShowableContextProvider();
-    expose({ show });
+    const { show, close } = useShowableContextProvider();
+    expose({ show, close });
     return () => h(Content);
   }
 });
@@ -102,6 +102,12 @@ const Content = defineComponent({
 :::
 
 <demo src="../examples/showable/dialog.vue"/>
+
+## 结合 Popover
+
+HiPopover 内部使用 `useShowableContextProvider` 并对外暴露 `show`、`close`。将 `showableRef` 绑定到 HiPopover 后，即可在外部通过 `popoverRef?.show()` 打开气泡框。
+
+<demo src="../examples/showable/popover.vue"/>
 
 ## 带参数打开
 

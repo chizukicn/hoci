@@ -18,11 +18,13 @@ describe("showableRef", () => {
 
   it("should accept assigned ShowableInstance", () => {
     const ref = showableRef<{ id: number }>();
-    const instance = { show: vi.fn(() => Promise.resolve()) };
+    const instance = { show: vi.fn(() => Promise.resolve()), close: vi.fn() };
     ref.value = instance;
     expect(ref.value).toBe(instance);
     ref.value.show({ id: 1 });
     expect(instance.show).toHaveBeenCalledWith({ id: 1 });
+    instance.close();
+    expect(instance.close).toHaveBeenCalled();
   });
 });
 

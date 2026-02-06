@@ -6,6 +6,12 @@
     "lib": ["esnext", "DOM"],
     "module": "esnext",
     "moduleResolution": "bundler",
+    "paths": {
+      "hoci": ["../packages/hoci/index.ts"],
+      "@hoci/components": ["../packages/components/index.ts"],
+      "@hoci/shared": ["../packages/shared/index.ts"],
+      "@hoci/core": ["../packages/core/index.ts"]
+    },
     "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": true,

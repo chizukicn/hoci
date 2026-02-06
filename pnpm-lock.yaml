@@ -252,6 +252,9 @@ importers:
       maybe-types:
         specifier: catalog:types
         version: 0.2.0
+      tslx:
+        specifier: catalog:utils
+        version: 0.3.0
       type-fest:
         specifier: catalog:types
         version: 5.4.3

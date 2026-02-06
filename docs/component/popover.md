@@ -28,8 +28,6 @@ const popoverRef = showableRef();
 </template>
 ```
 
-完整示例见 [Showable - 结合 Popover](/component/showable#结合-popover)。
-
 ## Popover 参数
 
 | 名称 | 类型 | 默认值 | 说明 |

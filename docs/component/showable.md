@@ -21,10 +21,11 @@ import {
 ```mermaid
 graph TB
     A["外部调用方<br/>dialogRef.value?.show()"]
-    B["Dialog Wrapper层<br/>useShowableContextProvider"]
+    B["Wrapper 弹出层<br/>useShowableContextProvider"]
     C["Content 内容层<br/>useShowableInstance<br/>"]
 
-    A -->|ref 绑定| B
+    A -->|showableRef 绑定| B
+    B -->|expose 暴露 show| A
     B -->|上下文传递| C
     C -.->|反向控制| B
 
@@ -45,29 +46,18 @@ import { defineComponent, h } from "vue";
 // 1. 创建 showableRef 用于外部控制
 const dialogRef = showableRef();
 
+// Wrapper 仅使用 useShowableContextProvider，并通过 expose 暴露 show 供外部 ref 调用
 const Provider = defineComponent({
-  setup() {
-    // 使用 useShowableContextProvider 返回的 store
-    const { visible, cancel } = useShowableContextProvider();
-
-    // 获取 showable 实例，通过 ref 绑定挂载到组件上
-    const instance = useShowableInstance();
-    const { show, close, confirm } = instance;
-
-    // 返回实例，Vue 会自动将其挂载到 ref 上
-    return {
-      show,
-      close,
-      confirm,
-      render: () => h(Content)
-    };
+  setup(_, { expose }) {
+    const { show } = useShowableContextProvider();
+    expose({ show });
+    return () => h(Content);
   }
 });
 
-// 2. 在子组件中使用
+// Content 仅使用 useShowableInstance
 const Content = defineComponent({
   setup() {
-    // 获取 showable 实例
     const instance = useShowableInstance();
     const {
       show, // 打开
@@ -94,7 +84,7 @@ const Content = defineComponent({
 
 <template>
   <div class="flex flex-col gap-2">
-    <!-- 在 Provider 外部的作用域中调用，通过 ref 挂载 -->
+    <!-- 在 Wrapper 外部的作用域中调用，通过 ref 挂载 -->
     <button @click="dialogRef?.show()">
       外部触发
     </button>
@@ -103,15 +93,13 @@ const Content = defineComponent({
 </template>
 ```
 
-## 基本用法
-
-在根组件（或包裹弹层的那一层）调用 `useShowableContextProvider()`，在需要控制显示的地方使用 `useShowableInstance()`。
-
-<demo src="../examples/showable/basic.vue"/>
-
 ## 弹窗组件示例
 
 一个完整的弹窗组件示例，展示如何使用 `useShowableInstance` 控制弹窗的显示/隐藏和状态。
+
+::: tip 使用 expose 暴露show方法
+在 Wrapper 层中，**必须使用 `expose({ show })`** 将 `show` 方法暴露给外部。这样通过 `ref` 绑定挂载后，外部才能通过 `dialogRef.value?.show()` 打开弹窗。若缺少 `expose`，ref 上拿不到 `show`，外部调用会无效。
+:::
 
 <demo src="../examples/showable/dialog.vue"/>
 
@@ -168,7 +156,9 @@ const Content = defineComponent({
 
 ### showableRef()
 
-返回 `shallowRef<Showable<T> | null>(null)`，用于在外部持有「可显示实例」的引用（例如通过模板 ref 拿到子组件暴露的 `show` 方法）。
+返回 `shallowRef<Showable<T> | null>(null)`，用于在外部持有「可显示实例」的引用。通过模板 ref 绑定到 Dialog 等组件后，外部可调用 `dialogRef.value?.show()`。
+
+**注意**：被 ref 绑定的组件需在 setup 中**使用 `expose({ show })`** 显式暴露 `show` 方法，否则 ref 上无法访问到 `show`。
 
 ### 类型
 

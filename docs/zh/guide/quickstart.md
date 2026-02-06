@@ -1,20 +1,20 @@
-# Quick Start
+# 快速开始 (Quick Start)
 
-## Install with a package manager
+## 使用包管理器安装
 
 ```sh
-# npm
+# 使用 npm
 npm install hoci
 
-# yarn
+# 使用 yarn
 yarn add hoci
 
-# pnpm
+# 使用 pnpm
 pnpm add hoci
 
 ```
 
-## Full import
+## 完整引入
 
 ```ts
 import hoci from "hoci";
@@ -25,16 +25,15 @@ app.use(hoci);
 app.mount("#app");
 ```
 
-## On-demand import
+## 按需引入
 
-Use unplugin-vue-components for on-demand component registration:
+你可以使用unplugin-vue-components按需引入组件
 
 ```sh
 npm install -D unplugin-vue-components
 ```
 
-Configure in `vite.config.ts`:
-
+在vite.config中配置
 ```ts
 import vue from "@vitejs/plugin-vue";
 import { HociResolver } from "hoci/resolver";
@@ -53,10 +52,8 @@ export default defineConfig({
 });
 ```
 
-## Using in JSX
-
-When using in `jsx` or `tsx`, import components directly:
-
+## 在JSX中使用
+在 `jsx` 或 `tsx` 中使用时，推荐以直接引入的方式使用组件
 ```jsx
 import { HiIcon } from "hoci";
 import logo from "@/assets/logo.svg";

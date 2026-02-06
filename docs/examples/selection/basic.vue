@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import { useDemoI18n } from "@demo-i18n";
 import { ref } from "vue";
 
 const activeNum = ref(1);
+const { t } = useDemoI18n();
 </script>
 
 <template>
@@ -15,20 +17,20 @@ const activeNum = ref(1);
       class="space-x-3 flex items-center"
     >
       <hi-item :value="1">
-        Item 1
+        {{ t("Item 1", "选项 1") }}
       </hi-item>
       <hi-item :value="2">
-        Item 2
+        {{ t("Item 2", "选项 2") }}
       </hi-item>
       <hi-item :value="3">
-        Item 3
+        {{ t("Item 3", "选项 3") }}
       </hi-item>
       <hi-item disabled :value="4">
-        Disbaled
+        {{ t("Disabled", "禁用") }}
       </hi-item>
     </hi-selection>
     <div class="mt-3">
-      Now activated: Item {{ activeNum }}
+      {{ t("Now activated", "当前激活") }}: {{ activeNum }}
     </div>
   </div>
 </template>

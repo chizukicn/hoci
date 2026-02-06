@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useDemoI18n } from "@demo-i18n";
 import { ref, watch } from "vue";
 
 const imageFile = ref<File>();
 const imagePreview = ref<string>("");
+const { t } = useDemoI18n();
 
 watch(imageFile, (file) => {
   if (file) {
@@ -24,7 +26,7 @@ function formatFileSize(bytes: number) {
   const sizes = ["B", "KB", "MB", "GB", "TB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return `${(bytes / k ** i).toFixed(2)} ${sizes[i]}`;
-};
+}
 </script>
 
 <template>
@@ -38,17 +40,17 @@ function formatFileSize(bytes: number) {
         <div v-if="!imageFile">
           <i class="hi-icon-image text-32px text-gray-500" />
           <div class="mt-3 text-gray-500">
-            点击上传图片
+            {{ t("Click to upload image", "点击上传图片") }}
           </div>
           <div class="mt-1 text-gray-400 text-14px">
-            支持 jpg、png 格式
+            {{ t("Supports jpg, png", "支持 jpg、png 格式") }}
           </div>
         </div>
         <div v-else class="w-full h-full flex flex-col items-center justify-center p-4">
           <img
             :src="imagePreview"
             class="max-w-full max-h-120px object-contain rounded"
-            alt="预览图"
+            :alt="t('Preview', '预览图')"
           >
           <div class="mt-3 text-center">
             <div class="text-gray-900 font-medium mb-1">

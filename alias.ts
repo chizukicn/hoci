@@ -9,5 +9,6 @@ export const alias: Record<string, string> = {
   "@hoci/components": r("./packages/components/index"),
   "@hoci/shared": r("./packages/shared/index"),
   "@hoci/core": r("./packages/core/index"),
-  "@/assets": r("./docs/assets")
+  "@/assets": r("./docs/assets"),
+  "@demo-i18n": r("./docs/.vitepress/theme/composables/demo-i18n")
 };

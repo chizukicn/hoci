@@ -1,16 +1,19 @@
-## Basic Usage (基本使用)
+# Affix
+
+## Basic usage
 <demo src="../examples/affix/basic.vue"/>
 
-## Target Container (指定容器)
+## Target container
 <demo src="../examples/affix/container.vue"/>
 
-## Fixed Position (固定的相对方向)
+## Fixed position
 <demo src="../examples/affix/fixed.vue"/>
 
-## Affix Props (参数)
+## Affix Props
+
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| offset | `number` | `0` | 距离达到指定偏移量后触发 |
-| target | `string` | `window` | 指定容器 |
-| position | `'top'` \| `'position'` | `'top'` | 固定的相对方向 |
-| z-index | `number` | `998` | z-index 值 |
+| offset | `number` | `0` | Offset at which fixing is triggered |
+| target | `string` | `window` | Scroll container selector |
+| position | `'top'` \| `'position'` | `'top'` | Side to fix to |
+| z-index | `number` | `998` | z-index when fixed |

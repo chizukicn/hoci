@@ -1,12 +1,13 @@
 <script setup>
+import { useDemoI18n } from "@demo-i18n";
 import { ref } from "vue";
 
 const checked = ref(false);
+const { t } = useDemoI18n();
 </script>
 
 <template>
   <div class="flex items-center gap-4">
-    <!-- 基础用法 -->
     <hi-switch
       v-model="checked"
       active-class="bg-blue-500 text-white shadow-md"
@@ -14,11 +15,8 @@ const checked = ref(false);
       class="min-w-16 text-center px-4 py-1 rounded-lg duration-300 select-none cursor-pointer"
     >
       <template #default="{ active }">
-        {{ active ? "开" : "关" }}
+        {{ active ? t("On", "开") : t("Off", "关") }}
       </template>
     </hi-switch>
   </div>
 </template>
-
-<style>
-</style>

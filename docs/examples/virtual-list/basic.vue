@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { VirtualListSlotData } from "@hoci/core";
+import { useDemoI18n } from "@demo-i18n";
 import { ref } from "vue";
 
 const MAX_COUNT = 3000;
+const { t } = useDemoI18n();
 
 const list = ref(Array.from({ length: 1000 }, (_, i) => ({
   name: `Item ${i + 1}`,
@@ -30,18 +32,18 @@ function handleScrollEnd() {
 <template>
   <div class="w-120">
     <div class="flex gap-2">
-      <div>List length: {{ list.length }}</div>
-      <div>Max count: {{ MAX_COUNT }}</div>
+      <div>{{ t("List length", "列表长度") }}: {{ list.length }}</div>
+      <div>{{ t("Max count", "最大数量") }}: {{ MAX_COUNT }}</div>
     </div>
     <div class="flex gap-2 w-120">
       <button class="bg-blue-500 flex-1 text-white p-2 rounded-md hover:bg-blue-600 mb-4" @click="appendBatch(1)">
-        append 1 item
+        {{ t("append 1 item", "添加 1 项") }}
       </button>
       <button class="bg-blue-500 flex-1 text-white p-2 rounded-md hover:bg-blue-600 mb-4" @click="appendBatch(10)">
-        append 10 items
+        {{ t("append 10 items", "添加 10 项") }}
       </button>
       <button class="bg-blue-500 flex-1 text-white p-2 rounded-md hover:bg-blue-600 mb-4" @click="appendBatch(100)">
-        append 100 items
+        {{ t("append 100 items", "添加 100 项") }}
       </button>
     </div>
     <hi-virtual-list
@@ -60,11 +62,11 @@ function handleScrollEnd() {
         >
           <span class="text-center font-bold w-20 inline-block">{{ list[index].value }}</span>
           <span>{{ list[index].name }}</span>
-          <span class="text-red-500 cursor-pointer" @click="handleDelete(index)">delete</span>
+          <span class="text-red-500 cursor-pointer" @click="handleDelete(index)">{{ t("delete", "删除") }}</span>
         </div>
       </template>
       <div class="absolute bottom-0 left-0 w-full">
-        <div>add</div>
+        <div>{{ t("add", "添加") }}</div>
       </div>
     </hi-virtual-list>
 

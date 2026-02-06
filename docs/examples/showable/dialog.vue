@@ -68,11 +68,12 @@ const DialogContent = defineComponent({
 // Dialog 作为弹出的 Wrapper 层
 const Dialog = defineComponent({
   setup(_, { expose }) {
-    const { visible, cancel, show } = useShowableContextProvider();
+    const { visible, cancel, show, close } = useShowableContextProvider();
 
     // 获取 showable 实例来控制显示
     expose({
-      show
+      show,
+      close
     });
 
     return () => (
@@ -99,12 +100,6 @@ export default defineComponent({
     return () => (
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-2">
-          <button
-            class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 w-fit"
-            onClick={() => dialogRef.value?.show()}
-          >
-            打开弹窗
-          </button>
           {lastResult.value
             ? (
                 <div class="text-sm text-gray-600">
@@ -113,6 +108,13 @@ export default defineComponent({
                 </div>
               )
             : null}
+          <button
+            class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 w-fit"
+            onClick={() => dialogRef.value?.show()}
+          >
+            打开弹窗
+          </button>
+
         </div>
         <Dialog ref={dialogRef} />
       </div>

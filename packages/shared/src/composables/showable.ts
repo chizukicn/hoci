@@ -12,10 +12,12 @@ import { computed, ref, shallowRef, toValue, watchPostEffect } from "vue";
  * When REQUIRE is true, `show()` requires a parameter.
  * When REQUIRE is false (default), `show()` parameter is optional.
  */
-export type Showable<PARAMETERS = any, REQUIRE extends boolean = false> = REQUIRE extends true ? {
+export type Showable<PARAMETERS = any, REQUIRE extends boolean = false> = (REQUIRE extends true ? {
   show: (data: PARAMETERS) => void;
 } : {
   show: (data?: PARAMETERS) => void;
+}) & {
+  close: (status?: ShowableStatus) => void;
 };
 
 /**

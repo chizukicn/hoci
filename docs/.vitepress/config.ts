@@ -32,6 +32,10 @@ function componentSidebar(): DefaultTheme.SidebarItem[] {
       link: "selection"
     },
     {
+      text: "Showable (可显示)",
+      link: "showable"
+    },
+    {
       text: "Switch (开关)",
       link: "switch"
     },

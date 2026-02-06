@@ -7,10 +7,10 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
-      "@hoci/shared": ["../packages/shared/src/index.ts"],
-      "@hoci/core": ["../packages/core/src/index.ts"],
-      "@hoci/components": ["../packages/components/src/index.ts"],
-      "hoci": ["../packages/hoci/src/index.ts"]
+      "hoci": ["../packages/hoci/index.ts"],
+      "@hoci/components": ["../packages/components/index.ts"],
+      "@hoci/shared": ["../packages/shared/index.ts"],
+      "@hoci/core": ["../packages/core/index.ts"]
     },
     "resolveJsonModule": true,
     "strict": true,

@@ -1,4 +1,3 @@
-import vueJsx from "@vitejs/plugin-vue-jsx";
 import { HociResolver } from "hoci/resolver";
 import { presetIcons, presetWind4 } from "unocss";
 import UnoCSS from "unocss/vite";
@@ -22,7 +21,6 @@ export default defineConfig({
     alias
   },
   plugins: [
-    vueJsx(),
     UnoCSS({
       presets: [
         presetWind4(),

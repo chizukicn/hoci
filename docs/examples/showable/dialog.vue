@@ -1,11 +1,11 @@
-<script lang="tsx">
+<script lang="ts">
 import {
   onShowableHide,
   showableRef,
   useShowableContextProvider,
   useShowableInstance
 } from "hoci";
-import { defineComponent, ref, Teleport } from "vue";
+import { defineComponent, h, ref, Teleport } from "vue";
 
 // 创建 showableRef 用于外部控制
 const dialogRef = showableRef();
@@ -32,36 +32,37 @@ const DialogContent = defineComponent({
       lastResult.value = `点击了：${statusText[status] ?? status}`;
     });
 
-    return () => (
-      <>
-        <div class="text-lg font-semibold mb-4">
-          {header.value || "提示"}
-        </div>
-        <div class="text-gray-600 mb-6">
-          这里是弹窗内容。
-        </div>
-        <div class="flex justify-end gap-2 flex-wrap">
-          <button
-            class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50"
-            onClick={cancel}
-          >
-            取消
-          </button>
-          <button
-            class="px-4 py-2 rounded border border-amber-300 hover:bg-amber-50 text-amber-700"
-            onClick={reject}
-          >
-            拒绝
-          </button>
-          <button
-            class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600"
-            onClick={confirm}
-          >
-            确认
-          </button>
-        </div>
-      </>
-    );
+    return () =>
+      h("div", [
+        h("div", { class: "text-lg font-semibold mb-4" }, header.value || "提示"),
+        h("div", { class: "text-gray-600 mb-6" }, "这里是弹窗内容。"),
+        h("div", { class: "flex justify-end gap-2 flex-wrap" }, [
+          h(
+            "button",
+            {
+              class: "px-4 py-2 rounded border border-gray-300 hover:bg-gray-50",
+              onClick: cancel
+            },
+            "取消"
+          ),
+          h(
+            "button",
+            {
+              class: "px-4 py-2 rounded border border-amber-300 hover:bg-amber-50 text-amber-700",
+              onClick: reject
+            },
+            "拒绝"
+          ),
+          h(
+            "button",
+            {
+              class: "px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600",
+              onClick: confirm
+            },
+            "确认"
+          )
+        ])
+      ]);
   }
 });
 
@@ -70,55 +71,54 @@ const Dialog = defineComponent({
   setup(_, { expose }) {
     const { visible, cancel, show, close } = useShowableContextProvider();
 
-    // 获取 showable 实例来控制显示
     expose({
       show,
       close
     });
 
-    return () => (
-      <Teleport to="body">
-        <div
-          v-show={visible.value}
-          class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-          onClick={cancel}
-        >
-          <div
-            class="bg-white rounded-lg shadow-lg p-6 min-w-80 max-w-md"
-            onClick={(e: Event) => e.stopPropagation()}
-          >
-            <DialogContent />
-          </div>
-        </div>
-      </Teleport>
-    );
+    return () => {
+      if (!visible.value) {
+        return null;
+      }
+      return h(Teleport, { to: "body" }, [
+        h("div", {
+          class: "fixed inset-0 bg-black/50 flex items-center justify-center z-50",
+          onClick: cancel
+        }, [
+          h("div", {
+            class: "bg-white rounded-lg shadow-lg p-6 min-w-80 max-w-md",
+            onClick: (e: Event) => e.stopPropagation()
+          }, [
+            h(DialogContent)
+          ])
+        ])
+      ]);
+    };
   }
 });
 
 export default defineComponent({
   setup() {
-    return () => (
-      <div class="flex flex-col gap-4">
-        <div class="flex flex-col gap-2">
-          {lastResult.value
-            ? (
-                <div class="text-sm text-gray-600">
-                  上次结果：
-                  {lastResult.value}
-                </div>
-              )
-            : null}
-          <button
-            class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 w-fit"
-            onClick={() => dialogRef.value?.show()}
-          >
-            打开弹窗
-          </button>
-
-        </div>
-        <Dialog ref={dialogRef} />
-      </div>
-    );
+    return () =>
+      h("div", { class: "flex flex-col gap-4" }, [
+        h("div", { class: "flex flex-col gap-2" }, [
+          lastResult.value
+            ? h("div", { class: "text-sm text-gray-600" }, [
+                "上次结果：",
+                lastResult.value
+              ])
+            : null,
+          h(
+            "button",
+            {
+              class: "px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 w-fit",
+              onClick: () => dialogRef.value?.show()
+            },
+            "打开弹窗"
+          )
+        ]),
+        h(Dialog, { ref: dialogRef })
+      ]);
   }
 });
 </script>

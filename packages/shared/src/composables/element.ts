@@ -1,15 +1,12 @@
 import type { MaybeRefOrGetter, Ref } from "vue";
 import { useMounted } from "@vueuse/core";
-import { computed, shallowRef } from "vue";
-import { toRef } from "./vueuse";
+import { computed, shallowRef, toValue } from "vue";
 
 export function useElement<E extends Element = HTMLElement>(elementSelector: MaybeRefOrGetter<string | Element | undefined | null>, defaultValue?: Ref<E | null | undefined> | MaybeRefOrGetter<E | null | undefined>): Ref<E | null | undefined> {
-  const selectorRef = toRef(elementSelector);
-  const defaultRef = toRef(defaultValue);
   const isMounted = useMounted();
 
   const el = computed(() => {
-    const selector = selectorRef.value;
+    const selector = toValue(elementSelector);
     if (typeof selector === "string") {
       if (isMounted.value) {
         return document.querySelector<E>(selector) ?? null;
@@ -19,7 +16,7 @@ export function useElement<E extends Element = HTMLElement>(elementSelector: May
     return selector as E;
   });
 
-  return computed(() => el.value ?? defaultRef.value);
+  return computed(() => el.value ?? toValue(defaultValue));
 }
 
 export type ElementRef<T extends HTMLElement = HTMLElement> = Ref<T | null>;

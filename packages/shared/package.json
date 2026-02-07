@@ -22,7 +22,7 @@
     "build": "tsdown"
   },
   "peerDependencies": {
-    "@vueuse/core": ">=9.12.0",
+    "@vueuse/core": ">=10.5.0",
     "vue": ">=3.3.0"
   },
   "dependencies": {

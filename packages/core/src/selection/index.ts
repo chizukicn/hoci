@@ -7,11 +7,10 @@ import {
   defineHookProps,
   getFirstChilld,
   labelPropType,
-  toReactive,
   useSharedConfig,
   valuePropType
 } from "@hoci/shared";
-import { isDefined, syncRef } from "@vueuse/core";
+import { isDefined, syncRef, toReactive } from "@vueuse/core";
 import { cls } from "tslx";
 import {
   computed,

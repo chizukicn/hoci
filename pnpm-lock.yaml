@@ -189,7 +189,7 @@ importers:
         specifier: catalog:ui
         version: 3.13.18
       '@vueuse/core':
-        specifier: '>=9.12.0'
+        specifier: '>=10.5.0'
         version: 12.8.2(typescript@5.9.3)
       maybe-types:
         specifier: catalog:types
@@ -210,7 +210,7 @@ importers:
         specifier: catalog:ui
         version: 3.13.18
       '@vueuse/core':
-        specifier: '>=9.12.0'
+        specifier: '>=10.5.0'
         version: 12.8.2(typescript@5.9.3)
       maybe-types:
         specifier: catalog:types
@@ -231,7 +231,7 @@ importers:
         specifier: workspace:*
         version: link:../core
       '@vueuse/core':
-        specifier: '>=9.12.0'
+        specifier: '>=10.5.0'
         version: 12.8.2(typescript@5.9.3)
       vue:
         specifier: '>=3.3.0'
@@ -244,7 +244,7 @@ importers:
   packages/shared:
     dependencies:
       '@vueuse/core':
-        specifier: '>=9.12.0'
+        specifier: '>=10.5.0'
         version: 12.8.2(typescript@5.9.3)
       defu:
         specifier: catalog:utils

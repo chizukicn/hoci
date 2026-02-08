@@ -1,18 +1,16 @@
 import { fileUploadEmits, fileUploadProps, useFileUpload } from "@hoci/core";
+import { asProps } from "@hoci/shared";
 import { defineComponent, h, renderSlot } from "vue";
 
 export const HiFileUpload = defineComponent({
   name: "HiFileUpload",
   props: {
     ...fileUploadProps,
+    ...asProps,
     accept: {
       type: String,
       default: "*/*"
     },
-    as: {
-      type: String,
-      default: "div"
-    }
   },
   emits: fileUploadEmits,
   setup(props, context) {

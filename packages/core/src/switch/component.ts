@@ -1,4 +1,5 @@
 import { switchEmits, switchProps, useSwitch } from "@hoci/core";
+import { asProps } from "@hoci/shared";
 import { capitalize } from "tslx";
 import { defineComponent, h, renderSlot } from "vue";
 
@@ -6,10 +7,7 @@ export const HiSwitch = defineComponent({
   name: "HiSwitch",
   props: {
     ...switchProps,
-    as: {
-      type: String,
-      default: "div"
-    }
+    ...asProps
   },
   emits: switchEmits,
 

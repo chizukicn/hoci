@@ -1,12 +1,14 @@
 import { popoverEmits, popoverProps, usePopover } from "@hoci/core";
+import { asProps, asPropType } from "@hoci/shared";
 import { defineComponent, h, renderSlot, Teleport } from "vue";
 
 export const HiPopover = defineComponent({
   name: "HiPopover",
   props: {
     ...popoverProps,
-    as: {
-      type: String,
+    ...asProps,
+    popupAs: {
+      type: asPropType,
       default: "div"
     }
   },
@@ -19,7 +21,7 @@ export const HiPopover = defineComponent({
     });
     return () => {
       let content = h(
-        "div",
+        props.popupAs,
         {
           class: popupClass.value,
           style: popupStyle.value,

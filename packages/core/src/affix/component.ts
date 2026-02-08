@@ -1,14 +1,12 @@
 import { affixProps, useAffix } from "@hoci/core";
+import { asProps } from "@hoci/shared";
 import { defineComponent, h, renderSlot } from "vue";
 
 export const HiAffix = defineComponent({
   name: "HiAffix",
   props: {
     ...affixProps,
-    as: {
-      type: String,
-      default: "div"
-    }
+    ...asProps
   },
   setup(props, context) {
     const { className, wrapperRef, isFixed, placeholderStyle, fixedStyle } = useAffix(props, context);

@@ -1,6 +1,6 @@
 import type { CSSProperties, PropType } from "vue";
 import type { VirtualListSlotData } from "./index";
-import { classPropType } from "@hoci/shared";
+import { asProps, asPropType, classPropType } from "@hoci/shared";
 import { each } from "tslx";
 import { computed, defineComponent, h, renderSlot } from "vue";
 import { useVirtualList, virtualListEmits, virtualListProps } from "./index";
@@ -10,12 +10,9 @@ export const HiVirtualList = defineComponent({
   inheritAttrs: true,
   props: {
     ...virtualListProps,
-    as: {
-      type: String,
-      default: () => "div"
-    },
+    ...asProps,
     wrapperAs: {
-      type: String,
+      type: asPropType,
       default: () => "div"
     },
     wrapperStyle: {

@@ -1,14 +1,12 @@
 import { selectionEmits, selectionProps, useSelectionList } from "@hoci/core";
+import { asProps } from "@hoci/shared";
 import { defineComponent, h } from "vue";
 
 export const HiSelection = defineComponent({
   name: "HiSelection",
   props: {
     ...selectionProps,
-    as: {
-      type: String,
-      default: "div"
-    }
+    ...asProps
   },
   emits: selectionEmits,
   setup(props, context) {

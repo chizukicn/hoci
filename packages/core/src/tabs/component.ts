@@ -1,5 +1,5 @@
 import type { KeepAliveProps, PropType } from "vue";
-import { classPropType } from "@hoci/shared";
+import { asProps, asPropType, classPropType } from "@hoci/shared";
 import { defineComponent, h, KeepAlive, renderSlot } from "vue";
 import { selectionProps, useSelectionList } from "../selection";
 
@@ -10,16 +10,13 @@ export const HiTabs = defineComponent({
     headerClass: {
       type: classPropType
     },
-    as: {
-      type: String,
-      default: "div"
-    },
+    ...asProps,
     headerAs: {
-      type: String,
+      type: asPropType,
       default: "div"
     },
     contentAs: {
-      type: String,
+      type: asPropType,
       default: "div"
     },
     contentClass: {

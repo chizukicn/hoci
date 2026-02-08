@@ -1,13 +1,11 @@
 import { iconProps, useIcon } from "@hoci/core";
+import { asProps } from "@hoci/shared";
 import { defineComponent, h } from "vue";
 
 export const HiIcon = defineComponent({
   props: {
     ...iconProps,
-    as: {
-      type: String,
-      default: "div"
-    }
+    ...asProps
   },
   setup(props, context) {
     const { style } = useIcon(props, context);

@@ -40,9 +40,9 @@ pnpm add @hoci/components
 If you don't care about the bundle size so much, it's more convenient to use full import.
 
 ```ts
+import * as HociComponents from "@hoci/components";
 // main.ts
 import { createApp } from "vue";
-import * as HociComponents from "@hoci/components";
 import App from "./App.vue";
 
 const app = createApp(App);

@@ -1,3 +1,4 @@
+import type markdownit from "markdown-it";
 import type { DemoInfos } from "./types";
 import { dirname, join, sep } from "node:path";
 import * as fsExtra from "fs-extra";

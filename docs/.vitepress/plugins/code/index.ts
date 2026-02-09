@@ -1,3 +1,4 @@
+import type markdownit from "markdown-it";
 import { fencePlugin } from "./fencePlugin";
 import { demoBlockPlugin } from "./plugin-demo-block";
 

@@ -22,15 +22,15 @@ catalogs:
   test:
     "@vitest/coverage-v8": ^4.0.18
     "@vue/test-utils": ^2.4.6
-    happy-dom: ^20.5.0
+    happy-dom: ^20.5.3
 
     vitest: ^4.0.18
   # type definitions
   types:
     "@types/fs-extra": ^11.0.4
-    "@types/node": ^25.2.1
+    "@types/node": ^25.2.2
     maybe-types: ^0.2.0
-    type-fest: ^5.4.3
+    type-fest: ^5.4.4
     typescript: ^5.9.3
 
   # UI/styles

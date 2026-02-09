@@ -1,4 +1,5 @@
 import type { AttributeNode, ElementNode } from "@vue/compiler-core";
+import type markdownit from "markdown-it";
 import { dirname, resolve } from "node:path";
 import { baseParse } from "@vue/compiler-core";
 import fsExtra from "fs-extra";

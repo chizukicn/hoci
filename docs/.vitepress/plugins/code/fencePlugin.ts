@@ -1,3 +1,4 @@
+import type markdownit from "markdown-it";
 import { FenceDemoTag } from "./constants";
 import { genDemoByCode } from "./utils";
 

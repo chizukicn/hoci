@@ -2,7 +2,7 @@
 
 [中文](README.zh-CN.md) | English
 
-Core headless components and logic for [hoci](../hoci/README.md). No default styling; you bring your own markup and styles. Built on Vue 3 and [@vueuse/core](https://vueuse.org/).
+Core composables, props, emits, and types for [hoci](../hoci/README.md). **No Vue components** — use [@hoci/components](../components/README.md) for ready-made components. Built on Vue 3 and [@vueuse/core](https://vueuse.org/).
 
 ## Install
 
@@ -12,40 +12,32 @@ pnpm add @hoci/core
 
 **Peer dependencies:** Vue 3.3+, [@vueuse/core](https://vueuse.org/) 10.5+.
 
-## Components & modules
+## Exports (composables & primitives)
 
-| Export | Description |
-|--------|-------------|
-| **Affix** | Pin content to viewport or a target element while scrolling. |
-| **AffixTarget** | Target element for affix positioning. |
-| **ConfigProvider** | Context for global component options. |
-| **FileUpload** | File input with drag-and-drop and validation. |
-| **Icon** | Icon wrapper with size/color/mask support. |
-| **Item** | Generic selectable list item (used with Selection). |
-| **Popover** | Floating panel with placement and trigger control. |
-| **Selection** | Single/multi selection container for Item children. |
-| **Switch** | Toggle (boolean) with optional labels. |
-| **TabPane** | Single tab panel (used with Tabs). |
-| **Tabs** | Tab container and switching logic. |
-| **VirtualList** | Virtualized list for large datasets. |
+| Area | Exports | Description |
+|------|---------|-------------|
+| **Affix** | `useAffix`, `affixProps`, `affixEmits`, `provideAffixTarget`, `AFFIX_TARGET_KEY` | Pin content to viewport or target while scrolling. |
+| **ConfigProvider** | `configProviderProps` | Global config (e.g. icon, activateEvent). |
+| **FileUpload** | `useFileUpload`, `fileUploadProps`, `fileUploadEmits` | File input with drag-and-drop and validation. |
+| **Icon** | `useIcon`, `iconProps` | Icon logic (size, color, mask). |
+| **Item** | `useSelectionItem`, `itemProps`, `itemEmits` | Selectable list item (used with Selection). |
+| **Popover** | `usePopover`, `popoverProps`, `popoverEmits` | Floating panel placement and trigger. |
+| **Selection** | `useSelectionList`, `useSelectionContext`, `selectionProps`, `selectionEmits` | Single/multi selection state and context. |
+| **Switch** | `useSwitch`, `switchProps`, `switchEmits` | Toggle (boolean) state. |
+| **VirtualList** | `useVirtualList`, `virtualListProps`, `virtualListEmits` | Virtualized list for large data. |
 
 Shared types, composables (e.g. `useShowable`), and utilities are re-exported from [@hoci/shared](../shared/README.md).
 
 ## Usage
 
-Use as headless building blocks with your own templates and CSS:
+Use composables to build your own templates; for pre-built Vue components, use **@hoci/components** or **hoci**.
 
-```tsx
-import { HiItem, HiSelection } from "@hoci/core";
+```ts
+import { selectionEmits, selectionProps, useSelectionList } from "@hoci/core";
 
-// Compose with your layout and classes
-<HiSelection v-model={value} activeClass="bg-blue-500" unactiveClass="bg-gray-500">
-  <HiItem value="a" />
-  <HiItem value="b" />
-</HiSelection>;
+// Use in your own component
+const { isActive, changeActive, render } = useSelectionList(props, { emit, slots });
 ```
-
-Typically you use **@hoci/components** for pre-wired Vue components, or **hoci** for the full library plus install and resolver.
 
 ## License
 

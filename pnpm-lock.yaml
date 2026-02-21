@@ -41,9 +41,6 @@ catalogs:
     '@vue/test-utils':
       specifier: ^2.4.6
       version: 2.4.6
-    happy-dom:
-      specifier: ^20.5.3
-      version: 20.5.3
     vitest:
       specifier: ^4.0.18
       version: 4.0.18
@@ -105,13 +102,13 @@ importers:
     devDependencies:
       '@curev/eslint-config':
         specifier: catalog:dev
-        version: 0.6.0(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
+        version: 0.6.0(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
       '@types/node':
         specifier: catalog:types
         version: 25.2.2
       '@vitest/coverage-v8':
         specifier: catalog:test
-        version: 4.0.18(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
       '@vue/test-utils':
         specifier: catalog:test
         version: 2.4.6
@@ -123,7 +120,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       happy-dom:
         specifier: catalog:test
-        version: 20.5.3
+        version: 20.7.0
       lint-staged:
         specifier: catalog:dev
         version: 16.2.7
@@ -147,7 +144,7 @@ importers:
         version: 1.6.4(@algolia/client-search@5.21.0)(@types/node@25.2.2)(change-case@5.4.4)(postcss@8.5.6)(sass@1.87.0)(search-insights@2.17.1)(typescript@5.9.3)
       vitest:
         specifier: catalog:test
-        version: 4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2)
 
   docs:
     dependencies:
@@ -2294,10 +2291,6 @@ packages:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
 
-  entities@6.0.1:
-    resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
-    engines: {node: '>=0.12'}
-
   entities@7.0.1:
     resolution: {integrity: sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==}
     engines: {node: '>=0.12'}
@@ -2654,6 +2647,9 @@ packages:
   get-tsconfig@4.13.3:
     resolution: {integrity: sha512-vp8Cj/+9Q/ibZUrq1rhy8mCTQpCk31A3uu9wc1C50yAb3x2pFHOsGdAZQ7jD86ARayyxZUViYeIztW+GE8dcrg==}
 
+  get-tsconfig@4.13.6:
+    resolution: {integrity: sha512-shZT/QMiSHc/YBLxxOkMtgSid5HFoauqCE3/exfsEcwg1WkeqjG+V40yBbBrsD+jW2HDXcs28xOfcbm2jI8Ddw==}
+
   giget@2.0.0:
     resolution: {integrity: sha512-L5bGsVkxJbJgdnwyuheIunkGatUF/zssUoxxjACCseZYAVbaqdh9Tsmmlkl8vYan09H7sbvKt4pS8GqKLBrEzA==}
     hasBin: true
@@ -2667,6 +2663,7 @@ packages:
 
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   globals@11.12.0:
@@ -2706,8 +2703,8 @@ packages:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
     engines: {node: '>=10'}
 
-  happy-dom@20.5.3:
-    resolution: {integrity: sha512-xqAxGnkRU0KNhheHpxb3uScqg/aehqUiVto/a9ApWMyNvnH9CAqHYq9dEPAovM6bOGbLstmTfGIln5ZIezEU0g==}
+  happy-dom@20.7.0:
+    resolution: {integrity: sha512-hR/uLYQdngTyEfxnOoa+e6KTcfBFyc1hgFj/Cc144A5JJUuHFYqIEBDcD4FeGqUeKLRZqJ9eN9u7/GDjYEgS1g==}
     engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
@@ -4131,7 +4128,7 @@ snapshots:
     dependencies:
       '@algolia/client-common': 5.21.0
 
-  '@antfu/eslint-config@5.4.1(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
+  '@antfu/eslint-config@5.4.1(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@clack/prompts': 0.11.0
@@ -4140,7 +4137,7 @@ snapshots:
       '@stylistic/eslint-plugin': 5.7.1(eslint@9.39.2(jiti@2.6.1))
       '@typescript-eslint/eslint-plugin': 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      '@vitest/eslint-plugin': 1.6.6(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
+      '@vitest/eslint-plugin': 1.6.6(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
       ansis: 4.2.0
       cac: 6.7.14
       eslint: 9.39.2(jiti@2.6.1)
@@ -4283,9 +4280,9 @@ snapshots:
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
-  '@curev/eslint-config@0.6.0(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
+  '@curev/eslint-config@0.6.0(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
     dependencies:
-      '@antfu/eslint-config': 5.4.1(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
+      '@antfu/eslint-config': 5.4.1(@vue/compiler-sfc@3.5.27)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
       defu: 6.1.4
       eslint: 9.39.2(jiti@2.6.1)
     transitivePeerDependencies:
@@ -5373,7 +5370,7 @@ snapshots:
       vite: 5.4.14(@types/node@25.2.2)(sass@1.87.0)
       vue: 3.5.13(typescript@5.9.3)
 
-  '@vitest/coverage-v8@4.0.18(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
+  '@vitest/coverage-v8@4.0.18(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.0.18
@@ -5385,16 +5382,16 @@ snapshots:
       obug: 2.1.1
       std-env: 3.10.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2)
+      vitest: 4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2)
 
-  '@vitest/eslint-plugin@1.6.6(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
+  '@vitest/eslint-plugin@1.6.6(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.54.0
       '@typescript-eslint/utils': 8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
     optionalDependencies:
       typescript: 5.9.3
-      vitest: 4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2)
+      vitest: 4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -5880,8 +5877,6 @@ snapshots:
 
   entities@4.5.0: {}
 
-  entities@6.0.1: {}
-
   entities@7.0.1: {}
 
   environment@1.1.0: {}
@@ -6351,6 +6346,11 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
+  get-tsconfig@4.13.6:
+    dependencies:
+      resolve-pkg-maps: 1.0.0
+    optional: true
+
   giget@2.0.0:
     dependencies:
       citty: 0.1.6
@@ -6402,12 +6402,12 @@ snapshots:
     dependencies:
       duplexer: 0.1.2
 
-  happy-dom@20.5.3:
+  happy-dom@20.7.0:
     dependencies:
       '@types/node': 25.2.2
       '@types/whatwg-mimetype': 3.0.2
       '@types/ws': 8.18.1
-      entities: 6.0.1
+      entities: 7.0.1
       whatwg-mimetype: 3.0.0
       ws: 8.19.0
     transitivePeerDependencies:
@@ -7619,7 +7619,7 @@ snapshots:
   tsx@4.19.0:
     dependencies:
       esbuild: 0.23.1
-      get-tsconfig: 4.13.3
+      get-tsconfig: 4.13.6
     optionalDependencies:
       fsevents: 2.3.3
     optional: true
@@ -7870,7 +7870,7 @@ snapshots:
       - typescript
       - universal-cookie
 
-  vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.5.3)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2):
+  vitest@4.0.18(@types/node@25.2.2)(happy-dom@20.7.0)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.18
       '@vitest/mocker': 4.0.18(vite@7.3.1(@types/node@25.2.2)(jiti@2.6.1)(sass@1.87.0)(tsx@4.19.0)(yaml@2.8.2))
@@ -7894,7 +7894,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 25.2.2
-      happy-dom: 20.5.3
+      happy-dom: 20.7.0
     transitivePeerDependencies:
       - jiti
       - less

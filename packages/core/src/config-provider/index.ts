@@ -8,5 +8,8 @@ export const configProviderProps = defineHookProps({
   },
   activateEvent: {
     type: String as PropType<Partial<SharedConfig["activateEvent"]>>
+  },
+  tooltip: {
+    type: Object as PropType<Partial<SharedConfig["tooltip"]>>
   }
 });

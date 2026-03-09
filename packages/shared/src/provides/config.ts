@@ -1,6 +1,6 @@
 import type { PartialDeep } from "type-fest";
 import type { InjectionKey } from "vue";
-import type { ActivateEvent } from "../types";
+import type { ActivateEvent, ClassType } from "../types";
 import defu from "defu";
 import { inject, provide } from "vue";
 
@@ -12,6 +12,9 @@ export interface SharedConfig {
     sizeUnit: string | undefined;
   };
   activateEvent: ActivateEvent;
+  tooltip: {
+    class?: ClassType;
+  };
 }
 
 export const DEFAULT_SHARED_CONFIG: SharedConfig = {
@@ -19,7 +22,10 @@ export const DEFAULT_SHARED_CONFIG: SharedConfig = {
     size: undefined,
     sizeUnit: "px"
   },
-  activateEvent: "click"
+  activateEvent: "click",
+  tooltip: {
+    class: undefined
+  }
 };
 
 export function provideSharedConfig(config: PartialDeep<SharedConfig>) {

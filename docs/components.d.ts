@@ -20,6 +20,7 @@ declare module 'vue' {
     HiSwitch: typeof import('hoci')['HiSwitch']
     HiTabPane: typeof import('hoci')['HiTabPane']
     HiTabs: typeof import('hoci')['HiTabs']
+    HiTooltip: typeof import('hoci')['HiTooltip']
     HiVirtualList: typeof import('hoci')['HiVirtualList']
   }
 }

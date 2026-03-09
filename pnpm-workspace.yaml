@@ -4,7 +4,7 @@ packages:
 catalogs:
   # build tools
   build:
-    tsdown: ^0.20.3
+    tsdown: ^0.21.0
     unbuild: ^3.6.1
 
   # dev tools

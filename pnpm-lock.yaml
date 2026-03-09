@@ -67,9 +67,6 @@ catalogs:
     '@iconify-json/carbon':
       specifier: ^1.2.18
       version: 1.2.18
-    '@tanstack/virtual-core':
-      specifier: ^3.13.18
-      version: 3.13.18
     unocss:
       specifier: ^66.6.0
       version: 66.6.6
@@ -187,7 +184,7 @@ importers:
         version: link:../shared
       '@tanstack/virtual-core':
         specifier: catalog:ui
-        version: 3.13.18
+        version: 3.13.21
       '@vueuse/core':
         specifier: '>=10.5.0'
         version: 12.8.2(typescript@5.9.3)
@@ -208,7 +205,7 @@ importers:
         version: link:../shared
       '@tanstack/virtual-core':
         specifier: catalog:ui
-        version: 3.13.18
+        version: 3.13.21
       '@vueuse/core':
         specifier: '>=10.5.0'
         version: 12.8.2(typescript@5.9.3)
@@ -1694,8 +1691,8 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
-  '@tanstack/virtual-core@3.13.18':
-    resolution: {integrity: sha512-Mx86Hqu1k39icq2Zusq+Ey2J6dDWTjDvEv43PJtRCoEYTLyfaPnxIQ6iy7YAOK0NV/qOEmZQ/uCufrppZxTgcg==}
+  '@tanstack/virtual-core@3.13.21':
+    resolution: {integrity: sha512-ww+fmLHyCbPSf7JNbWZP3g7wl6SdNo3ah5Aiw+0e9FDErkVHLKprYUrwTm7dF646FtEkN/KkAKPYezxpmvOjxw==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -5215,7 +5212,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.3
 
-  '@tanstack/virtual-core@3.13.18': {}
+  '@tanstack/virtual-core@3.13.21': {}
 
   '@tybys/wasm-util@0.10.1':
     dependencies:

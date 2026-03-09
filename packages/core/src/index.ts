@@ -6,5 +6,6 @@ export * from "./item";
 export * from "./popover";
 export * from "./selection";
 export * from "./switch";
+export * from "./tooltip";
 export * from "./virtual-list";
 export * from "@hoci/shared";

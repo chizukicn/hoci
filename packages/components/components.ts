@@ -9,4 +9,5 @@ export * from "../core/src/selection/component";
 export * from "../core/src/switch/component";
 export * from "../core/src/tab-pane/component";
 export * from "../core/src/tabs/component";
+export * from "../core/src/tooltip/component";
 export * from "../core/src/virtual-list/component";

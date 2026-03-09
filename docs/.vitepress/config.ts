@@ -25,6 +25,7 @@ function enComponentSidebar(): DefaultTheme.SidebarItem[] {
     { text: "Showable", link: "showable" },
     { text: "Switch", link: "switch" },
     { text: "Popover", link: "popover" },
+    { text: "Tooltip", link: "tooltip" },
     { text: "File Upload", link: "file-upload" },
     { text: "Tabs", link: "tabs" },
     { text: "Virtual List", link: "virtual-list" }
@@ -54,6 +55,7 @@ function zhComponentSidebar(): DefaultTheme.SidebarItem[] {
     { text: "可显示 (Showable)", link: "showable" },
     { text: "开关 (Switch)", link: "switch" },
     { text: "浮动 (Popover)", link: "popover" },
+    { text: "提示 (Tooltip)", link: "tooltip" },
     { text: "文件上传 (File Upload)", link: "file-upload" },
     { text: "标签页 (Tabs)", link: "tabs" },
     { text: "虚拟列表 (Virtual List)", link: "virtual-list" }

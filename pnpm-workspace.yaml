@@ -4,17 +4,17 @@ packages:
 catalogs:
   # build tools
   build:
-    tsdown: ^0.20.3
+    tsdown: ^0.21.1
     unbuild: ^3.6.1
 
   # dev tools
   dev:
-    "@curev/eslint-config": ^0.6.0
+    "@curev/eslint-config": ^0.6.1
     bumpp: ^10.4.1
     eslint: ^9.39.2
-    lint-staged: ^16.2.7
+    nano-staged: ^0.9.0
     simple-git-hooks: ^2.13.1
-    taze: ^19.9.2
+    taze: ^19.10.0
     vitepress: ^1.6.4
     vitepress-plugin-llms: ^1.11.0
 
@@ -22,27 +22,36 @@ catalogs:
   test:
     "@vitest/coverage-v8": ^4.0.18
     "@vue/test-utils": ^2.4.6
-    happy-dom: ^20.5.3
+    happy-dom: ^20.8.3
 
     vitest: ^4.0.18
   # type definitions
   types:
     "@types/fs-extra": ^11.0.4
-    "@types/node": ^25.2.2
+    "@types/node": ^25.3.5
     maybe-types: ^0.2.0
     type-fest: ^5.4.4
     typescript: ^5.9.3
 
   # UI/styles
   ui:
-    "@iconify-json/carbon": ^1.2.18
-    "@tanstack/virtual-core": ^3.13.18
-    unocss: ^66.6.0
+    "@iconify-json/carbon": ^1.2.19
+    "@tanstack/virtual-core": ^3.13.21
+    unocss: ^66.6.6
     unplugin-vue-components: ^31.0.0
 
   # utility libraries
   utils:
     defu: ^6.1.4
-    fs-extra: ^11.3.3
+    fs-extra: ^11.3.4
     nolyfill: ^1.0.44
     tslx: ^0.3.0
+
+overrides:
+  array-includes: npm:@nolyfill/array-includes@^1.0.44
+  array.prototype.flat: npm:@nolyfill/array.prototype.flat@^1.0.44
+  array.prototype.flatmap: npm:@nolyfill/array.prototype.flatmap@^1.0.44
+  has: npm:@nolyfill/has@^1.0.44
+  hasown: npm:@nolyfill/hasown@^1.0.44
+  is-core-module: npm:@nolyfill/is-core-module@^1.0.39
+  object.values: npm:@nolyfill/object.values@^1.0.44

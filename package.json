@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.29.1",
+  "packageManager": "pnpm@10.31.0",
   "description": "hook ui .",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "bumpp": "catalog:dev",
     "eslint": "catalog:dev",
     "happy-dom": "catalog:test",
-    "lint-staged": "catalog:dev",
+    "nano-staged": "catalog:dev",
     "nolyfill": "catalog:utils",
     "simple-git-hooks": "catalog:dev",
     "taze": "catalog:dev",
@@ -52,21 +52,10 @@
     "vitepress": "catalog:dev",
     "vitest": "catalog:test"
   },
-  "pnpm": {
-    "overrides": {
-      "array-includes": "npm:@nolyfill/array-includes@^1.0.44",
-      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@^1.0.44",
-      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@^1.0.44",
-      "has": "npm:@nolyfill/has@^1.0.44",
-      "hasown": "npm:@nolyfill/hasown@^1.0.44",
-      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
-      "object.values": "npm:@nolyfill/object.values@^1.0.44"
-    }
-  },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "pnpm exec nano-staged"
   },
-  "lint-staged": {
+  "nano-staged": {
     "*.{js,ts}": [
       "eslint --fix"
     ]

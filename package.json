@@ -18,8 +18,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "pnpm -r --parallel --filter=./packages/** build",
-    "stub": "pnpm -r --parallel --filter=./packages/**  run stub",
+    "build": "pnpm -r --parallel --filter './packages/*' build",
+    "stub": "pnpm -r --parallel --filter './packages/*' run stub",
     "lint": "eslint --cache .",
     "test": "vitest",
     "coverage": "vitest run --coverage",

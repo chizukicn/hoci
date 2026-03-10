@@ -48,11 +48,11 @@ Tabs组件用于在同一容器内切换不同的内容区域。
 
 ---
 
-# 标签页面板 (TabPane)
+## 标签页面板 (TabPane)
 
 TabPane用于定义每个标签页的内容。
 
-## TabPane Props (参数)
+### TabPane Props (参数)
 | 名称 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
 | value | `any` | `undefined` | 标签页的唯一值 |
@@ -60,7 +60,7 @@ TabPane用于定义每个标签页的内容。
 | active-event | `ActiveEvent` | `click` | 触发选中的事件 |
 | disabled | `boolean` | `false` | 是否禁用 |
 
-## TabPane Slots (插槽)
+### TabPane Slots (插槽)
 | 名称 | 说明 |
 | --- | --- |
 | default | 标签页内容 |

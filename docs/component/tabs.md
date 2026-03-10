@@ -52,11 +52,11 @@ Use `HiTabs` with `HiTabPane` or `HiItem` to define each tab and its content.
 
 ---
 
-# TabPane
+## TabPane
 
 TabPane defines each tab’s value and content.
 
-## TabPane Props
+### TabPane Props
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ TabPane defines each tab’s value and content.
 | active-event | `ActiveEvent` | `click` | Event that activates this tab |
 | disabled | `boolean` | `false` | Whether disabled |
 
-## TabPane Slots
+### TabPane Slots
 
 | Name | Description |
 | --- | --- |

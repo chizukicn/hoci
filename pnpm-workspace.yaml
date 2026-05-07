@@ -23,7 +23,7 @@ catalogs:
     "@curev/eslint-config": ^0.6.2
     bumpp: ^10.4.1
     eslint: ^9.39.2
-    lint-staged: ^16.3.3
+    lint-staged: ^17.0.0
     simple-git-hooks: ^2.13.1
     taze: ^19.10.0
     vitepress: ^1.6.4

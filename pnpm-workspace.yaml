@@ -16,7 +16,7 @@ overrides:
 catalogs:
   # build tools
   build:
-    tsdown: ^0.21.1
+    tsdown: ^0.23.0
 
   # dev tools
   dev:
